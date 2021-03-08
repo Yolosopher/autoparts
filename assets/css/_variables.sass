@@ -1,0 +1,109 @@
+// colors
+$blue: #20489D
+// $green: #1e3e0d
+$yellow: #FFD001
+$grey: #707070
+$black: #000000
+// $placeholder: #C1C1C1
+// $fontblack: #4B4B4B
+// $curRed: #E92020
+// $curGreen: #259F25
+// $runningstring: #707070
+// $radiobtnbg: #D4D9DC
+// $skyblue: #e2ecf3
+
+$width450: 450px
+$width700: 700px
+$width769: 769px
+$width1279: 1279px
+$width1441: 1441px
+$max-width: 1637px // 1336px
+$containerPaddingIpad: 20px
+$containerPadding: 30px
+$padL: calc( ((100vw - 10px) - 1697px) / 2)
+
+    
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button 
+    -webkit-appearance: none !important
+    margin: 0 !important
+
+
+/* Firefox */
+input[type=number] 
+    -moz-appearance: textfield !important
+
+
+@mixin plus450()
+    @media screen and (min-width: $width450)
+        @content
+
+@mixin plus700()
+    @media screen and (min-width: $width700)
+        @content
+
+@mixin plus769()
+    @media screen and (min-width: $width769)
+        @content
+
+@mixin plus1025()
+    @media screen and (min-width: $width1279)
+        @content
+
+@mixin plus1441()
+    @media screen and (min-width: $width1441)
+        @content
+
+@mixin sizePlus($width)
+    @media screen and (min-width: $width)
+        @content
+
+// @mixin upperCase($bold)
+//     font-family: mtavruli !important
+//     text-transform: uppercase !important
+//     font-weight: 500 !important
+//     text-transform: uppercase
+//     @if $bold
+//         font-weight: 600 !important
+.container
+    margin: 0 auto
+    padding: 0 $containerPaddingIpad
+    @include plus1025()
+        padding: 0 $containerPadding
+        width: 100%
+        &:not(.homeMain__slider__slide__container)
+            max-width: #{$max-width + $containerPadding * 2}
+    &.homeMain__slider__slide__container
+        @include sizePlus(1637px)
+            max-width: #{$max-width + $containerPadding * 2} !important
+.container8
+    margin: 0 auto
+    padding: 0 $containerPaddingIpad
+    @include plus1025()
+        padding: 0 $containerPadding
+        width: 100%
+        &:not(.homeMain__slider__slide__container)
+            max-width: #{$max-width + $containerPadding * 2}
+    &.homeMain__slider__slide__container
+        @include sizePlus(1637px)
+            max-width: #{$max-width + $containerPadding * 2} !important
+
+@mixin blur($px)
+    -webkit-filter: blur($px)
+    -moz-filter: blur($px)
+    -o-filter: blur($px)
+    -ms-filter: blur($px)
+    filter: blur($px)
+
+@mixin maxcolumn($num)
+    overflow: hidden
+    text-overflow: ellipsis
+    display: -webkit-box
+    -webkit-line-clamp: $num /* number of lines to show */
+    -webkit-box-orient: vertical
+
+@mixin font($size, $lnh)
+    font-size: $size
+    line-height: $lnh
