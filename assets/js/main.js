@@ -80,7 +80,6 @@ addBtns.forEach((btn) => {
 		} else {
 			inCartNum.innerText = response.data.productsInBasket
 			addInBasketMessage.classList.remove('error')
-			addInBasketMessage.setAttribute('href', `${window.location.origin}/products/${productId}`)
 			addInBasketMessage.classList.add('shown')
 			setTimeout(() => {
 				addInBasketMessage.classList.remove('shown')

@@ -2,11 +2,10 @@
 @import _variables
 @import defaults
 
-
 // components
 @import header
 /* UC */
-@import searchbar 
+@import searchbar
 /* /UC */
 @import homepage_brands
 @import homepage_deliveryservice
@@ -14,4 +13,106 @@
 
 @import footer
 @import addproductmessage
+
+
+
+.responsiveMenu
+    position: fixed
+    right: 0
+    z-index: 9
+    background-image: url(../img/responsive-bg.png)
+    background-repeat: no-repeat
+    background-size: cover
+    background-color: $blue
+    background-blend-mode: multiply
+    bottom: -2px
+    height: 81px
+    padding-bottom: 1px
+    width: 100%
+    @include plus1025()
+        display: none
+    &__content
+        position: relative
+        z-index: 1
+        display: flex
+        align-items: center
+        justify-content: space-between
+        height: 100%
+        width: 100%
+        padding: 0 37.5px
+    
+    &::after
+        content: ''
+        position: absolute
+        right: 0
+        top: 0
         
+        display: block
+        width: 100%
+        height: 100%
+
+        background-color: rgba($black, .5)
+        
+    
+    &.active
+        .burger
+            span
+                &:nth-child(1)
+                    transform: rotate(45deg)
+                    top: 6px
+                &:nth-child(2)
+                    width: 0
+                &:nth-child(3)
+                    transform: rotate(-45deg)
+                    top: 6px
+
+
+.searchbarMobile
+    align-self: flex-start
+    transform: translateY(-50%)
+    &__box
+        display: flex
+        justify-content: center
+        align-items: center
+
+        width: 72px
+        height: 72px
+
+        border-radius: 4px
+        background-color: $yellow
+
+
+
+
+
+
+
+
+// burger
+.burger-container
+    // justify-self: flex-end
+    width: 32px
+    height: 32px
+    display: flex
+    justify-content: center
+    align-items: center
+.burger
+    display: block
+    height: 12px
+    position: relative
+    width: 18px
+    cursor: pointer
+    span
+        width: 18px
+        height: 2px
+        background-color: #fff
+        display: block
+        position: absolute
+        border-radius: 15px
+        transition-duration: .5s
+        &:nth-child(2)
+            top: 6px
+        &:nth-child(3)
+            top: 12px
+
+// burger end
