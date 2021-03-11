@@ -1,0 +1,218 @@
+.coverimg
+    height: 100vh
+    width: 100%
+    position: absolute
+    top: 0
+    right: 0
+    overflow: hidden
+    z-index: -1
+    background-image: url(../img/autopartscover.jpg)
+    background-repeat: no-repeat
+    background-size: cover
+    background-color: $blue
+    background-blend-mode: multiply
+    img
+        width: 100%
+        height: 100%
+        object-fit: cover
+
+.header
+    color: #fff
+    position: fixed
+    top: 0
+    right: 0
+    width: 100%
+    z-index: 3
+    // background-color: rgba($blue, .9)
+    &__info
+        padding: 0 30px
+        height: 36px
+        // backdrop-filter: blur(30px)
+        // --webkit-backdrop-filter: blur(30px)
+        background-color: rgba(255, 255, 255, .18)
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        // @-moz-document url-prefix()
+        //     &::after
+        //         content: ''
+        //         position: absolute
+        //         top: 0
+        //         display: block
+        //         right: 0
+        //         width: 100%
+        //         height: 100%
+        //         background-color: rgba(255, 255, 255, 0.11)
+        //         filter: blur(30px)
+        //         z-index: -1
+        font-family: crreg
+        @include font(13px, 14px)
+        @include plus1025()
+            justify-content: space-between
+
+        &__hr
+            display: inline-block
+            margin: 0 16px
+            width: 1px
+            height: 20px
+            background-color: rgba(#fff, .5)
+            border-radius: 100px
+
+        &__left
+            display: flex
+            align-items: center
+            a
+                transition: color .1s ease
+                &:hover
+                    color: $yellow
+                    transition: color .1s ease
+        &__right
+            display: none
+            align-items: center
+            @include plus1025()
+                display: flex
+            
+            &__authorization, &__registration
+                font-family: crcaps
+                margin-right: 12px
+                display: flex
+                align-items: center
+                cursor: pointer
+                transition: color .1s ease-out
+                svg
+                    margin-right: 10px
+                    path
+                        transition: fill .2s ease-out
+                &:hover
+                    color: $yellow
+                    svg path
+                        fill: $yellow
+            &__registration
+                transform: translateY(2.3px)
+
+
+    &__bottom
+        padding: 0 30px
+        height: 116px
+        display: flex
+        align-items: center
+        justify-content: space-between
+        background-color: rgba($black, .49)
+        &__nav
+            flex-grow: 1
+            display: none
+            align-items: center
+            justify-content: flex-end
+            @include plus1025()
+                display: flex
+            &__ul
+                display: grid
+                grid-template-columns: repeat(4, auto)
+                align-items: center
+                grid-gap: 32px
+                font-family: crbldcaps
+                @include font(15px, 25px)
+                li
+                    transition: color .1s ease
+                    &.active, &:active    
+                        color: $yellow
+                    &:hover
+                        @include plus1025()
+                            color: $yellow
+
+        &__shoppingcart
+            margin-left: 37px
+            cursor: pointer
+            display: none
+            position: relative
+            
+            @include plus1025()
+                display: unset
+            svg path
+                &:nth-child(2)
+                    transition: fill .2s ease-outs
+            &:hover
+                svg path
+                    &:nth-child(2)
+                        fill: $yellow
+            &__number
+                position: absolute
+                top: -3px
+                right: -3px
+                display: flex
+                justify-content: center
+                align-items: center
+
+                font-family: cr2019bld
+                @include font(8px, 8px)
+
+                width: 14px
+                height: 14px
+                border-radius: 50%
+                border: 1px solid #fff
+                background-color: $red
+
+
+    
+.languagebar
+    font-family: crbldcaps
+    width: 44px
+    top: 6px
+    height: auto
+    z-index: 1
+    position: relative
+    align-self: flex-start
+    span
+        display: block
+        text-align: center
+        margin-bottom: 8px
+    &__ul
+        right: 0
+        width: 100%
+        z-index: 1
+        flex-direction: column
+        align-items: center
+        border-radius: 8px
+        background-color: $black
+        padding: 0
+        overflow: hidden
+        display: flex
+        height: 0
+        transition: none
+        li 
+            text-align: center
+            margin-bottom: 10px
+            transition: color .1s ease
+            a
+                @include font(15px, 16px)
+                transition: font-size .1s ease-out
+            &.active
+                display: none
+            &:hover
+                color: $yellow
+    &__active
+        color: #fff
+        transition: .1s ease-out
+        cursor: pointer
+
+    &:hover
+        top: 34px
+        height: 80px
+        .languagebar__active
+            color: $yellow
+
+        .languagebar__ul
+            height: unset
+            padding: 10px
+            padding-bottom: 0
+            li
+                a
+                    @include font(13px, 14px)
+                
+    &__bottom
+        padding: 0 30px
+
+
+.header__info__right__authorization__text
+    transform: translateY(2.3px)

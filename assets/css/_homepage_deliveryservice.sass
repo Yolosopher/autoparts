@@ -1,0 +1,152 @@
+.deliveryservice
+    padding: 0 10px
+    background-color: #fff
+    padding-top: 96px    
+    padding-bottom: 180px
+    @include sizePlus(800px)
+        padding: 0 36px
+        padding-top: 96px    
+        padding-bottom: 180px
+    h2
+        font-family: crbldcaps
+        @include font(36px, 38px)
+        text-transform: uppercase
+        color: $black
+        margin-bottom: 64px
+    &__gridbox
+        display: grid
+        color: #fff
+        grid-template-columns: 100%
+        grid-template-rows: 206px 16px 206px
+
+        border-radius: 8px
+        overflow: hidden
+
+
+        background-image: url(../img/supra-driving.jpg)
+        background-repeat: no-repeat
+        background-size: cover
+        background-position: center
+        @include sizePlus(800px)
+            grid-template-columns: 65fr auto 35fr auto 100fr
+        
+        &__item__real
+            // border-radius: 8px
+            width: 100%
+            padding: 26px 18px 0 12px
+            > *
+                position: relative
+                z-index: 1
+
+
+            &.real1
+                overflow: hidden
+                position: relative
+                @include sizePlus(800px)
+                    grid-column: 1 / 4
+                &::after
+                    content: ''
+                    position: absolute
+                    right: 0
+                    top: 0
+                    width: 100%
+                    height: 100%
+                    display: block
+                    background-color: $blue            
+                    mix-blend-mode: multiply
+                    z-index: 0
+            &.real2
+                position: relative
+                display: none
+                @include sizePlus(800px)
+                    display: unset
+                &::after
+                    content: ''
+                    position: absolute
+                    right: 0
+                    top: 0
+                    width: 100%
+                    height: 100%
+                    display: block
+                    background-color: $blue            
+                    mix-blend-mode: multiply
+                    z-index: 0
+            &.real4    
+                display: none
+                @include sizePlus(800px)
+                    display: flex
+                    width: 100%
+                    grid-column: 3 / 6
+                    grid-row: 3 
+                &::after
+                    content: none
+                    position: absolute
+                    right: 0
+                    top: 0
+                    width: 100%
+                    height: 100%
+                    display: block
+                    background-color: $yellow          
+                    mix-blend-mode: color
+                    z-index: 0
+                    @include sizePlus(800px) 
+                        content: ''
+            &.real3, &.real4          
+                position: relative
+                @include sizePlus(800px)      
+                    background-color: $yellow         
+                    mix-blend-mode: color
+            &.real3
+                position: relative
+                &::after
+                    content: ''
+                    position: absolute
+                    right: 0
+                    top: 0
+                    width: 100%
+                    height: 100%
+                    display: block
+                    background-color: $yellow          
+                    mix-blend-mode: color
+                    z-index: 0
+                    @include sizePlus(800px) 
+                        content: none
+                    
+            h3
+                font-family: crbldcaps
+                @include font(20px, 21px)
+                text-transform: uppercase
+                margin-bottom: 19px
+            h4
+                display: flex
+                align-items: center
+                justify-content: space-between
+                font-family: crbldcaps
+                @include font(16px, 17px)
+                margin-bottom: 8px
+                color: $yellow
+            &__delivery
+                &.standard
+                    margin-bottom: 16px
+                    &__container
+                        &__text
+                            font-family: crreg
+                            @include font(16px, 17px)
+                            text-transform: uppercase
+        &__item__gap
+            width: 24px
+            background-color: #fff
+            &.gap1
+                display: none
+                @include sizePlus(800px)
+                    display: unset
+            &.gap2
+                width: 100%
+                // height:
+                @include sizePlus(800px)
+                    grid-column: 1 / 6
+            &.gap3
+                grid-column: 2 / 3
+                display: none        
+                @include sizePlus(800px)
+                    display: unset

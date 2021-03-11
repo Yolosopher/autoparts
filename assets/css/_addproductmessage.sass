@@ -1,0 +1,26 @@
+.productAddMessage
+    position: fixed
+    right: 36px
+    top: 162px
+    display: inline
+    padding: 16px
+    @include font(16px, 17px)
+    color: $black
+    font-family: crbldcaps
+    background-color: $green
+    border-radius: 8px
+    text-align: left
+    z-index: -10
+    opacity: 0
+    transition: opacity .5s ease-in
+    &.shown
+        z-index: 10
+        opacity: 1
+    &__error
+        display: none
+    &.error
+        background-color: $red
+        .productAddMessage__success
+            display: none
+        .productAddMessage__error
+            display: inline

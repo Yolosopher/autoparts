@@ -1,0 +1,49 @@
+.brands
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-gap: 24px
+    grid-auto-rows: 182px
+    margin-top: calc( (100vh / 2) - #{32px + 91px})
+    margin-bottom: 64px
+    // padding: 0 30px
+    @include plus700()
+        grid-template-columns: repeat(3, 1fr)
+    @include plus1025()
+        grid-template-columns: repeat(5, 1fr)
+    
+    &__item
+        display: flex
+        flex-direction: column
+        border-radius: 8px
+        background-color: #fff
+        height: 100%
+        width: 100%
+        padding: 20px
+        padding-bottom: 18px
+        overflow: hidden
+        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0)
+        transition: box-shadow .2s ease
+        &:hover
+            box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.11)
+        &__imgbox
+            margin-bottom: 28px
+            height: 20%
+            flex-grow: 1
+            
+            img
+                height: 100%
+                width: 100%
+                object-fit: contain
+                transform: scale(1)
+                transition: transform .4s ease-out
+        &:hover
+            img
+                transform: scale(1.1)
+                transition: transform .4s ease-in
+        h1
+            font-family: crbldcaps
+            @include font(15px, 16px)
+            text-transform: uppercase
+            color: $black
+            text-align: center
+            
