@@ -4,6 +4,8 @@ const langActiveLiAINTEXT = document.querySelector(
 ).innerText
 const activeLangSpan = document.querySelector('.languagebar__active')
 activeLangSpan.innerText = langActiveLiAINTEXT
+const isHomePage = Boolean(document.querySelector('.topProducts'))
+const body = document.querySelector('body')
 
 const header = document.querySelector('header')
 let headerHeight = header.offsetHeight
@@ -88,24 +90,81 @@ addBtns.forEach((btn) => {
 	})
 })
 
-
 const blueBG = document.querySelector('.blueBG')
 const burger = document.getElementById('burger')
 const searchBtnMobile = document.getElementById('searchbarMobile')
 const respoMenu = document.querySelector('.responsiveMenu')
 const searchBarContainer = document.querySelector('.searchbar__container')
+const responsiveNav = document.querySelector('.responsiveNavigation')
 
+const searchInput = document.querySelector('.searchbar__input')
+
+const isBurgerOn = () => {
+	return blueBG.classList.contains('toggled')
+}
+const isSearchOn = () => {
+	return blueBG.classList.contains('toggledForSearch')
+}
+const scrollTopFunction = async () => {
+	document.body.scrollTop = 0 // For Safari
+	document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
+}
 searchBtnMobile.addEventListener('click', () => {
-	if (blueBG.classList.contains('toggled')) {
-		searchBarContainer.style.animationDelay = 0
-		searchBarContainer.style.animationFillMode = 'backwards'
+	if (isBurgerOn()) {
+		burger.click()
 		setTimeout(() => {
-			blueBG.classList.remove('toggled')
-			searchBarContainer.style.animationDelay = ''
-			searchBarContainer.style.animationFillMode = ''
-		}, 300);
+			if (!isHomePage) {
+				scrollTopFunction()
+				blueBG.classList.add('toggledForSearch')
+			} else {
+				searchInput.focus()
+				scrollTopFunction()
+			}
+		}, 600)
 	} else {
-		blueBG.classList.add('toggled')
+		if (isSearchOn()) {
+			if (!isHomePage) {
+				searchBarContainer.style.animationDelay = 0
+				searchBarContainer.style.animationFillMode = 'backwards'
+				setTimeout(() => {
+					blueBG.classList.remove('toggledForSearch')
+					searchBarContainer.style.animationDelay = ''
+					searchBarContainer.style.animationFillMode = ''
+				}, 300)
+			}
+		} else {
+			if (!isHomePage) {
+				blueBG.classList.add('toggledForSearch')
+			} else {
+				searchInput.focus()
+				scrollTopFunction()
+			}
+		}
+	}
+})
 
+burger.addEventListener('click', () => {
+	if (isSearchOn()) {
+		searchBtnMobile.click()
+		setTimeout(() => {
+			scrollTopFunction()
+			respoMenu.classList.add('active')
+			blueBG.classList.add('toggled')
+			responsiveNav.classList.add('toggled')
+			body.classList.add('noscroll')
+		}, 900)
+	} else {
+		if (isBurgerOn()) {
+			respoMenu.classList.remove('active')
+			blueBG.classList.remove('toggled')
+			responsiveNav.classList.remove('toggled')
+			body.classList.remove('noscroll')
+		} else {
+			scrollTopFunction()
+			respoMenu.classList.add('active')
+			blueBG.classList.add('toggled')
+			responsiveNav.classList.add('toggled')
+			body.classList.add('noscroll')
+		}
 	}
 })
