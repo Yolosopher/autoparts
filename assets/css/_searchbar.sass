@@ -6,7 +6,6 @@
     display: flex
     align-items: center
     height: 100%
-    transform: translateY(-50%)
     input
         flex-grow: 1
         font-family: crreg
@@ -17,4 +16,11 @@
         margin: 0 auto
         margin-top: calc( (100vh / 2) - 32px)
         transition: margin-top .3s .3s linear
+        &.nothmpg
+            height: 0
+            animation: flex
+            overflow: hidden
+            transition: margin-top .3s .3s linear
+            position: fixed
+
 

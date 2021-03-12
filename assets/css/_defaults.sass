@@ -96,3 +96,11 @@ body
     &.noscroll
         overflow-y: hidden
 
+    &.selectpage
+        display: grid
+        min-height: calc( 100vh + #{768px} )
+        @include plus1025()
+            min-height: calc( 100vh + #{176px} )
+
+        .footer
+            align-self: flex-end

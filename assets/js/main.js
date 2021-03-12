@@ -5,6 +5,7 @@ const langActiveLiAINTEXT = document.querySelector(
 const activeLangSpan = document.querySelector('.languagebar__active')
 activeLangSpan.innerText = langActiveLiAINTEXT
 const isHomePage = Boolean(document.querySelector('.topProducts'))
+
 const body = document.querySelector('body')
 
 const header = document.querySelector('header')
@@ -30,21 +31,6 @@ window.addEventListener(
 	},
 	false
 )
-let hmpgTopProducts = new Swiper('.topProducts__slider', {
-	spaceBetween: 24,
-	slidesPerView: 'auto',
-	// observeParents: true,
-	// observer: true,
-	pagination: {
-		el: '.topProducts__slider__pagination',
-		type: 'bullets',
-		clickable: true,
-	},
-	navigation: {
-		nextEl: '.topProducts__slider__navRight',
-		prevEl: '.topProducts__slider__navLeft',
-	},
-})
 
 const addInBasketMessage = document.querySelector('.productAddMessage')
 const addBtns = document.querySelectorAll(
@@ -109,6 +95,9 @@ const scrollTopFunction = async () => {
 	document.body.scrollTop = 0 // For Safari
 	document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
 }
+if (!isHomePage){
+	searchBarContainer.classList.add('nothmpg')
+}
 searchBtnMobile.addEventListener('click', () => {
 	if (isBurgerOn()) {
 		burger.click()
@@ -116,6 +105,7 @@ searchBtnMobile.addEventListener('click', () => {
 			if (!isHomePage) {
 				scrollTopFunction()
 				blueBG.classList.add('toggledForSearch')
+				searchInput.focus()
 			} else {
 				searchInput.focus()
 				scrollTopFunction()
@@ -128,13 +118,16 @@ searchBtnMobile.addEventListener('click', () => {
 				searchBarContainer.style.animationFillMode = 'backwards'
 				setTimeout(() => {
 					blueBG.classList.remove('toggledForSearch')
+					searchBarContainer.style.height = ''
 					searchBarContainer.style.animationDelay = ''
 					searchBarContainer.style.animationFillMode = ''
 				}, 300)
 			}
 		} else {
 			if (!isHomePage) {
+				searchBarContainer.style.height = '64px'
 				blueBG.classList.add('toggledForSearch')
+				searchInput.focus()
 			} else {
 				searchInput.focus()
 				scrollTopFunction()
