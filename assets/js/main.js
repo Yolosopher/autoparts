@@ -87,3 +87,25 @@ addBtns.forEach((btn) => {
 		}
 	})
 })
+
+
+const blueBG = document.querySelector('.blueBG')
+const burger = document.getElementById('burger')
+const searchBtnMobile = document.getElementById('searchbarMobile')
+const respoMenu = document.querySelector('.responsiveMenu')
+const searchBarContainer = document.querySelector('.searchbar__container')
+
+searchBtnMobile.addEventListener('click', () => {
+	if (blueBG.classList.contains('toggled')) {
+		searchBarContainer.style.animationDelay = 0
+		searchBarContainer.style.animationFillMode = 'backwards'
+		setTimeout(() => {
+			blueBG.classList.remove('toggled')
+			searchBarContainer.style.animationDelay = ''
+			searchBarContainer.style.animationFillMode = ''
+		}, 300);
+	} else {
+		blueBG.classList.add('toggled')
+
+	}
+})

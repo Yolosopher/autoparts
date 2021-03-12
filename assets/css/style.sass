@@ -68,8 +68,9 @@
 
 
 .searchbarMobile
-    align-self: flex-start
-    transform: translateY(-50%)
+    &:not(.desktop)
+        align-self: flex-start
+        transform: translateY(-50%)
     &__box
         display: flex
         justify-content: center
@@ -80,11 +81,44 @@
 
         border-radius: 4px
         background-color: $yellow
+    &.desktop
+        .searchbarMobile__box
+            width: 48px
+            height: 48px
+
+
+.blueBG
+    position: fixed
+    top: -100%
+    display: block
+    width: 100%
+    height: calc(100vh - #{152px + 78px})
+    background-color: $blue
+    z-index: 7
+    transition: top .6s ease-out
+    &.toggled
+        top: 152px
+
+        ~ .searchbar__container
+            margin-top: 0 !important
+            // transform: translateY(-50%)
+            opacity: 0
+            animation: searchbarOpacity .9s .3s ease forwards
 
 
 
+    @include plus1025()
+        display: none
 
 
+@keyframes searchbarOpacity
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+        top: 50%
+        position: fixed
+        z-index: 8
 
 
 

@@ -6,7 +6,14 @@
     display: flex
     align-items: center
     height: 100%
+    input
+        flex-grow: 1
+        font-family: crreg
+        @include font(15px, 25px)
+        color: $black
     &__container
         height: 64px
         margin: 0 auto
-        margin-top: calc( (100vh / 2) - 32px) !important
+        margin-top: calc( (100vh / 2) - 32px)
+        transition: margin-top .3s .3s linear
+

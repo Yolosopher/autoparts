@@ -529,10 +529,22 @@ body.noscroll {
   height: 100%;
 }
 
+.searchbar input {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  font-family: crreg;
+  font-size: 15px;
+  line-height: 25px;
+  color: #000000;
+}
+
 .searchbar__container {
   height: 64px;
   margin: 0 auto;
-  margin-top: calc( (100vh / 2) - 32px) !important;
+  margin-top: calc( (100vh / 2) - 32px);
+  -webkit-transition: margin-top .3s .3s linear;
+  transition: margin-top .3s .3s linear;
 }
 
 /* /UC */
@@ -1427,7 +1439,7 @@ body.noscroll {
   top: 6px;
 }
 
-.searchbarMobile {
+.searchbarMobile:not(.desktop) {
   -ms-flex-item-align: start;
       align-self: flex-start;
   -webkit-transform: translateY(-50%);
@@ -1448,6 +1460,64 @@ body.noscroll {
   height: 72px;
   border-radius: 4px;
   background-color: #FFD001;
+}
+
+.searchbarMobile.desktop .searchbarMobile__box {
+  width: 48px;
+  height: 48px;
+}
+
+.blueBG {
+  position: fixed;
+  top: -100%;
+  display: block;
+  width: 100%;
+  height: calc(100vh - 230px);
+  background-color: #20489D;
+  z-index: 7;
+  -webkit-transition: top .6s ease-out;
+  transition: top .6s ease-out;
+}
+
+.blueBG.toggled {
+  top: 152px;
+}
+
+.blueBG.toggled ~ .searchbar__container {
+  margin-top: 0 !important;
+  opacity: 0;
+  -webkit-animation: searchbarOpacity .9s .3s ease forwards;
+          animation: searchbarOpacity .9s .3s ease forwards;
+}
+
+@media screen and (min-width: 1025px) {
+  .blueBG {
+    display: none;
+  }
+}
+
+@-webkit-keyframes searchbarOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    top: 50%;
+    position: fixed;
+    z-index: 8;
+  }
+}
+
+@keyframes searchbarOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    top: 50%;
+    position: fixed;
+    z-index: 8;
+  }
 }
 
 .burger-container {
