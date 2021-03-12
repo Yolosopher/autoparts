@@ -13,11 +13,20 @@ brandsOptions.forEach((option) => {
 
 arrows.forEach((arrow) => {
 	arrow.addEventListener('click', () => {
-		arrow.parentElement.classList.toggle('toggled')
-        let filtered = arrows.filter(arr != arrow)
-        filtered.forEach(fil => {
-            fil.parentElement.classList.remove('toggled')
-        })
+		if (arrow.nextElementSibling.querySelector('li')) {
+			arrow.parentElement.classList.toggle('toggled')
+			let filtered = arrows.filter(arr != arrow)
+			filtered.forEach(fil => {
+				fil.parentElement.classList.remove('toggled')
+			})
+		} else {
+			let previousSelectContainer = arrow.parentElement.previousElementSibling
+			if (previousSelectContainer.querySelector('li')) {
+				previousSelectContainer.querySelector('.filters__form__selectcontainer__arrow').click()
+			} else {
+				document.querySelector('.filters__form__selectcontainer__arrow').click()
+			}
+		}
 	})
 })
 
