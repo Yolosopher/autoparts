@@ -489,7 +489,7 @@ body.selectpage .footer {
 }
 
 .header__bottom__shoppingcart__popup__ul::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
   background-color: #F2F2F2;
 }
 
