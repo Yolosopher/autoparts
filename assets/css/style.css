@@ -554,6 +554,10 @@ body.selectpage .footer {
   color: #000000;
 }
 
+.header__bottom__shoppingcart__popup__ul__li__mid__bottom__codename {
+  margin-bottom: 4px;
+}
+
 .header__bottom__shoppingcart__popup__ul__li__form {
   display: -webkit-box;
   display: -ms-flexbox;
