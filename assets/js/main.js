@@ -95,7 +95,7 @@ const scrollTopFunction = async () => {
 	document.body.scrollTop = 0 // For Safari
 	document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
 }
-if (!isHomePage){
+if (!isHomePage) {
 	searchBarContainer.classList.add('nothmpg')
 }
 searchBtnMobile.addEventListener('click', () => {
@@ -161,3 +161,75 @@ burger.addEventListener('click', () => {
 		}
 	}
 })
+
+// basket controls
+const shoppingcart = document.querySelector('.header__bottom__shoppingcart')
+const shoppingcartPopup = document.querySelector(
+	'.header__bottom__shoppingcart__popup'
+)
+
+shoppingcart.addEventListener('mouseenter', () => {
+	shoppingcart.classList.add('toggled')
+})
+
+shoppingcartPopup.addEventListener('mouseleave', () => {
+	shoppingcart.classList.remove('toggled')
+})
+
+let shoppingCartLis = document.querySelectorAll(
+	'.header__bottom__shoppingcart__popup__ul__li'
+)
+
+shoppingCartLis.forEach((li) => {
+	let id = +li.getAttribute('data-id')
+	let unitPrice = +li.getAttribute('data-price')
+	let minus = li.querySelector(
+		'.header__bottom__shoppingcart__popup__ul__li__form__minus'
+	)
+	let plus = li.querySelector(
+		'.header__bottom__shoppingcart__popup__ul__li__form__plus'
+	)
+
+	let input = li.querySelector(
+		'.header__bottom__shoppingcart__popup__ul__li__form__num'
+	)
+
+	let priceSpan = li.querySelector(
+		'.header__bottom__shoppingcart__popup__ul__li__form__price span'
+	)
+
+	plus.addEventListener('click', () => {
+		shopcartIncrementer(id, input, unitPrice, priceSpan)
+	})
+	minus.addEventListener('click', () => {
+		shopcartIncrementer(id, input, unitPrice, priceSpan, true)
+	})
+})
+
+const shopcartIncrementer = async (id, inp, prc, prcSPan, decrem = false) => {
+	let val = +inp.value
+	if (decrem) {
+		if (val !== 1) {
+			--val
+			// let response = await axios.post(cartChangeUrl, { id, quantity: val })
+			let response = { data: { success: true } }
+			if (response.data.success) {
+				inp.value = val
+			} else {
+				return false
+			}
+		} else {
+			return false
+		}
+	} else {
+		++val
+		// let response = await axios.post(cartChangeUrl, { id, quantity: val })
+		let response = { data: { success: true } }
+		if (response.data.success) {
+			inp.value = val
+		} else {
+			return false
+		}
+	}
+	prcSPan.innerText = +inp.value * prc
+}

@@ -125,19 +125,182 @@
 
         &__shoppingcart
             margin-left: 37px
-            cursor: pointer
             display: none
             position: relative
             
             @include plus1025()
                 display: unset
-            svg path
+            > svg path
+                cursor: pointer
                 &:nth-child(2)
                     transition: fill .2s ease-outs
             &:hover
-                svg path
+                > svg path
                     &:nth-child(2)
                         fill: $yellow
+
+            &.toggled
+                @include plus1025()
+                    .header__bottom__shoppingcart__popup
+                        height: 375px
+                        opacity: 1
+            &__popup
+                position: absolute
+                z-index: 999
+                display: none
+                right: 0
+                top: 62px
+                width: 594px
+                background-color: #fff
+                color: $black
+                border-radius: 8px
+                overflow: hidden
+                opacity: 0
+                height: 0
+                transition: .3s ease-in
+                @include plus1025()
+                    display: flex
+                &__inner
+                    display: flex
+                    flex-direction: column
+                    width: 100%
+                    height: 100%
+                    padding: 48px 10px 24px 24px
+                    h4
+                        font-family: crbldcaps
+                        @include font(15px, 16px)
+                        margin-bottom: 27px
+                &__ul
+                    flex-grow: 1
+                    display: grid
+                    grid-auto-rows: 79px
+                    grid-gap: 12px
+                    margin-bottom: 42px
+                    overflow: auto
+                    height: 30%
+                    scrollbar-width: thin
+                    scrollbar-color: $blue $yellow
+
+                    &::-webkit-scrollbar 
+                        width: 10px
+                        background-color: #F2F2F2
+                    &::-webkit-scrollbar-track
+                        background-color: $blue
+                        border-radius: 10px
+                    &::-webkit-scrollbar-thumb
+                        background-color: $yellow
+                        border-radius: 10px
+                    
+                    &__li
+                        display: flex
+                        height: 100%
+                        width: 100%
+                        align-items: center
+                        justify-content: space-between
+                        padding-right: 10px
+                        &__imgbox
+                            height: 100%
+                            width: 79px
+                            overflow: hidden
+                            border-radius: 8px
+                            img
+                                width: 100%
+                                height: 100%
+                                object-fit: cover
+                        &__mid
+                            min-width: 180px
+                            h5
+                                font-family: crbldcaps
+                                @include font(15px, 16px)
+                                margin-bottom: 12px
+                            &__bottom
+                                font-family: crreg
+                                @include font(13px, 14px)
+                                color: #C5C5C5
+                                span
+                                    color: $black
+                        &__form
+                            display: flex
+                            align-items: center
+                            color: $black
+
+                            &__controls
+                                display: flex
+                                align-items: center
+                            &__minus, &__plus
+                                width: 24px
+                                height: 24px
+                                display: flex
+                                justify-content: center
+                                align-items: center
+                                cursor: pointer
+                            &__minus
+                                span
+                                    display: inline-block
+                                    min-width: 10px
+                                    min-height: 2px
+                                    background-color: $black
+                            &__plus
+                                position: relative
+                                &__one, &__two
+                                    display: block
+                                    min-width: 10px
+                                    min-height: 2px
+                                    background-color: $black
+                                &__two
+                                    transform: translate(-50%, -50%) rotate(90deg)
+                                    position: absolute
+                                    top: 50%
+                                    left: 50%
+                                    // right: 50%
+
+                            input
+                                display: flex
+                                justify-content: center
+                                align-items: center
+                                text-align: center
+                                width: 37px
+                                height: 32px
+                                background-color: #F5F5F5
+                                border-radius: 8px
+                                font-family: crbldcaps
+                                @include font(15px, 16px)
+                                margin: 0 8px
+
+                            
+                            &__price
+                                display: flex
+                                justify-content: center
+                                align-items: center
+                                padding: 0 5px
+                                border-radius: 8px
+                                height: 48px
+                                min-width: 67px
+                                background-color: #F5F5F5
+                                font-family: crbldcaps
+                                @include font(15px, 16px)
+
+                        &__removebtn
+                            cursor: pointer
+
+
+
+                &__link
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    border-radius: 8px
+                    background-color: rgba($yellow, 1)
+                    transition: background-color .1s ease-out
+                    @include font(15px, 16px)
+                    font-family: crbldcaps
+                    color: $black
+                    width: 198px
+                    height: 48px
+                    &:hover
+                        background-color: rgba($yellow, .8)
+                        transition: background-color .1s ease-in
+            
             &__number
                 position: absolute
                 top: -3px
@@ -155,8 +318,6 @@
                 border: 1px solid #fff
                 background-color: $red
 
-
-    
 .languagebar
     font-family: crbldcaps
     width: 44px
