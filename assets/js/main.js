@@ -198,15 +198,22 @@ shoppingCartLis.forEach((li) => {
 		'.header__bottom__shoppingcart__popup__ul__li__form__price span'
 	)
 
+	let removebtn = li.querySelector(
+		'.header__bottom__shoppingcart__popup__ul__li__removebtn'
+	)
+
 	plus.addEventListener('click', () => {
-		shopcartIncrementer(id, input, unitPrice, priceSpan)
+		shopcartIncDecrementer(id, input, unitPrice, priceSpan)
 	})
 	minus.addEventListener('click', () => {
-		shopcartIncrementer(id, input, unitPrice, priceSpan, true)
+		shopcartIncDecrementer(id, input, unitPrice, priceSpan, true)
+	})
+	removebtn.addEventListener('click', () => {
+		shopcartRemover(id, li)
 	})
 })
 
-const shopcartIncrementer = async (id, inp, prc, prcSPan, decrem = false) => {
+const shopcartIncDecrementer = async (id, inp, prc, prcSPan, decrem = false) => {
 	let val = +inp.value
 	if (decrem) {
 		if (val !== 1) {
@@ -232,4 +239,12 @@ const shopcartIncrementer = async (id, inp, prc, prcSPan, decrem = false) => {
 		}
 	}
 	prcSPan.innerText = +inp.value * prc
+}
+
+const shopcartRemover = async (id, el) => {
+	// let response = await axios.post(cartRemoveUrl, { id })
+	let response = { data: { success: true } }
+	if (response.data.success) {
+		el.remove()
+	}
 }
