@@ -208,11 +208,12 @@
                                 height: 100%
                                 object-fit: cover
                         &__mid
-                            min-width: 180px
+                            max-width: 192px
                             h5
                                 font-family: crbldcaps
-                                @include font(15px, 16px)
+                                @include font(14px, 15px)
                                 margin-bottom: 12px
+                                @include maxcolumn(1)
                             &__bottom
                                 font-family: crreg
                                 @include font(13px, 14px)

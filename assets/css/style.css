@@ -533,14 +533,19 @@ body.selectpage .footer {
 }
 
 .header__bottom__shoppingcart__popup__ul__li__mid {
-  min-width: 180px;
+  max-width: 192px;
 }
 
 .header__bottom__shoppingcart__popup__ul__li__mid h5 {
   font-family: crbldcaps;
-  font-size: 15px;
-  line-height: 16px;
+  font-size: 14px;
+  line-height: 15px;
   margin-bottom: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .header__bottom__shoppingcart__popup__ul__li__mid__bottom {

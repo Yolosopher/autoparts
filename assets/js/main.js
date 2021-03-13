@@ -40,41 +40,7 @@ const inCartNum = document.querySelector(
 	'.header__bottom__shoppingcart__number'
 )
 
-addBtns.forEach((btn) => {
-	btn.addEventListener('click', async (e) => {
-		e.preventDefault()
-		let productId = btn.getAttribute('data-id')
 
-		let response
-		try {
-			// response = await axios.post(addProductURL, {
-			// 	id: productId
-			// })
-			response = {
-				data: {
-					productsInBasket: 5,
-				},
-			}
-		} catch (error) {
-			console.log(error.message)
-		}
-
-		if (!response.data) {
-			addInBasketMessage.classList.add('error')
-			addInBasketMessage.classList.add('shown')
-			setTimeout(() => {
-				addInBasketMessage.classList.remove('shown')
-			}, 3000)
-		} else {
-			inCartNum.innerText = response.data.productsInBasket
-			addInBasketMessage.classList.remove('error')
-			addInBasketMessage.classList.add('shown')
-			setTimeout(() => {
-				addInBasketMessage.classList.remove('shown')
-			}, 3000)
-		}
-	})
-})
 
 const blueBG = document.querySelector('.blueBG')
 const burger = document.getElementById('burger')
@@ -179,8 +145,7 @@ shoppingcartPopup.addEventListener('mouseleave', () => {
 let shoppingCartLis = document.querySelectorAll(
 	'.header__bottom__shoppingcart__popup__ul__li'
 )
-
-shoppingCartLis.forEach((li) => {
+const shoppcartliinitialiser = async (li) => {
 	let id = +li.getAttribute('data-id')
 	let unitPrice = +li.getAttribute('data-price')
 	let minus = li.querySelector(
@@ -211,6 +176,18 @@ shoppingCartLis.forEach((li) => {
 	removebtn.addEventListener('click', () => {
 		shopcartRemover(id, li)
 	})
+}
+
+
+const shopcartRemover = async (id, el) => {
+	// let response = await axios.post(cartRemoveUrl, { id })
+	let response = { data: { success: true } }
+	if (response.data.success) {
+		el.remove()
+	}
+}
+shoppingCartLis.forEach((li) => {
+	shoppcartliinitialiser(li)
 })
 
 const shopcartIncDecrementer = async (id, inp, prc, prcSPan, decrem = false) => {
@@ -241,10 +218,90 @@ const shopcartIncDecrementer = async (id, inp, prc, prcSPan, decrem = false) => 
 	prcSPan.innerText = +inp.value * prc
 }
 
-const shopcartRemover = async (id, el) => {
-	// let response = await axios.post(cartRemoveUrl, { id })
-	let response = { data: { success: true } }
-	if (response.data.success) {
-		el.remove()
-	}
-}
+
+
+
+addBtns.forEach((btn) => {
+	btn.addEventListener('click', async (e) => {
+		e.preventDefault()
+		let productId = btn.getAttribute('data-id')
+		let title = btn.parentElement.querySelector('h3').getAttribute('title')
+		let brand = btn.parentElement.querySelector('.topProducts__slider__wrapper__slide__info__value.brand').innerText
+		let code = btn.parentElement.querySelector('.topProducts__slider__wrapper__slide__info__value.code').innerText
+		let price = btn.parentElement.querySelector('.topProducts__slider__wrapper__slide__price span').innerText
+		let imgsrc = btn.parentElement.querySelector('.topProducts__slider__wrapper__slide__imgbox img').getAttribute('src')
+		let link = btn.parentElement.querySelector('.topProducts__slider__wrapper__slide__imgbox').getAttribute('href')
+		
+
+		let response
+		try {
+			// response = await axios.post(addProductURL, {
+			// 	id: productId
+			// })
+			response = {
+				data: {
+					productsInBasket: 5,
+				},
+			}
+		} catch (error) {
+			console.log(error.message)
+		}
+
+		if (!response.data) {
+			addInBasketMessage.classList.add('error')
+			addInBasketMessage.classList.add('shown')
+			setTimeout(() => {
+				addInBasketMessage.classList.remove('shown')
+			}, 3000)
+		} else {
+			inCartNum.innerText = response.data.productsInBasket
+			addInBasketMessage.classList.remove('error')
+			addInBasketMessage.classList.add('shown')
+			setTimeout(() => {
+				addInBasketMessage.classList.remove('shown')
+			}, 3000)
+
+			// Create New Li In shoppingcart
+			// Create New Li In shoppingcart
+			// Create New Li In shoppingcart
+			let innerhtml = `
+					<a href="${link}" class="header__bottom__shoppingcart__popup__ul__li__imgbox">
+						<img src="${imgsrc}">
+					</a>
+					<div class="header__bottom__shoppingcart__popup__ul__li__mid">
+						<h5><a href="${link}">${title}</a></h5>
+						<div class="header__bottom__shoppingcart__popup__ul__li__mid__bottom">
+							<div class="header__bottom__shoppingcart__popup__ul__li__mid__bottom__codename">კოდი: <span>${code}</span></div>
+							<div class="header__bottom__shoppingcart__popup__ul__li__mid__bottom__brandname">ბრენდი: <span>${brand}</span></div>
+						</div>
+					</div>
+					<form class="header__bottom__shoppingcart__popup__ul__li__form">
+						<div class="header__bottom__shoppingcart__popup__ul__li__form__controls">
+							<div class="header__bottom__shoppingcart__popup__ul__li__form__minus"><span></span></div>
+							<input type="number" name="num" class="header__bottom__shoppingcart__popup__ul__li__form__num" value="1" min="01">
+							<div class="header__bottom__shoppingcart__popup__ul__li__form__plus">
+								<span class="header__bottom__shoppingcart__popup__ul__li__form__plus__one"></span>
+								<span class="header__bottom__shoppingcart__popup__ul__li__form__plus__two"></span>
+							</div>
+						</div>
+					</form>
+					<div class="header__bottom__shoppingcart__popup__ul__li__form__price">₾<span>${price}</span></div>
+					<button type="button" class="header__bottom__shoppingcart__popup__ul__li__removebtn">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0,0H24V24H0Z" fill="none"/><path d="M19,13H13v6H11V13H5V11h6V5h2v6h6Z" transform="translate(12 -4.971) rotate(45)"/></svg>
+					</button>
+			`
+			let li = document.createElement('li')
+			
+			document.querySelector('.header__bottom__shoppingcart__popup__ul').appendChild(li)
+
+			li.classList.add('header__bottom__shoppingcart__popup__ul__li')
+			li.setAttribute('data-id', productId)
+			li.setAttribute('data-price', price)
+			li.innerHTML = innerhtml
+
+			console.log(li)
+
+			await shoppcartliinitialiser(li)
+		}
+	})
+})
