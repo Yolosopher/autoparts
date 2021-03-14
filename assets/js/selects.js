@@ -115,5 +115,3 @@ const clickEventInitialiser = async (
 		chsn.innerText = value
 	}
 }
-
-// click event for carsLiElements

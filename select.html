@@ -235,8 +235,7 @@
                 <ul class="filters__form__selectcontainer__ul">
 
                 </ul>
-            </div>           
-
+            </div>
         </form>
     </div>
     <!-- /filters -->
@@ -330,15 +329,15 @@
 
     <!-- for select.html only -->
     <script>
-        const brandsURL = '' // აქ უნდა ჩაიწეროს brands-ზე საგზავნი url რომელსაც POST რიქვესთზე გამოყვება data შემდეგნაირად
+        const brandsURL = '{{ }}' // აქ უნდა ჩაიწეროს brands-ზე საგზავნი url რომელსაც POST რიქვესთზე გამოყვება data შემდეგნაირად
         /*
             {
                 value: //აქ იქნება არჩეული ბრენდი//
             }
         */
-        const modelsURL = '' // აქაც იგივე ოღონდ მოდელების url POST-ზე
+        const modelsURL = '{{ }}' // აქაც იგივე ოღონდ მოდელების url POST-ზე
         
-
+        document.querySelector('.filters__form').addEventListener('submit', e => e.preventDefault())
 
     </script>
 
