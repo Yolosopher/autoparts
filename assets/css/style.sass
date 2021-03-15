@@ -78,13 +78,13 @@
         padding-bottom: 24px
         &__headings
 
-            grid-template-columns: 295px repeat(2, 1fr)
             justify-items: center
             margin-bottom: 24px
             font-family: crbldcaps
             @include font(15px, 16px)
             
             @include plus1025()
+                grid-template-columns: 295px repeat(2, 1fr)
                 display: grid
             li
                 &:first-child
@@ -118,15 +118,18 @@
                     border-radius: 8px
                     padding: 0 15px
                     height: 48px
-                    margin-left: 37px
+                    margin-left: 12px
                     display: flex
                     justify-content: center
                     align-items: center
                     min-width: 106px
+                    @include plus1025()                
+                        margin-left: 37px
             &__cleanBasket
                 color: #C5C5C5
                 background-color: #F5F5F5
-                width: 182px
+                width: 162px
+                margin-right: 3px
                 height: 48px
                 border-radius: 8px
                 display: flex
@@ -134,7 +137,9 @@
                 align-items: center
                 cursor: pointer
                 @include plus1025()
+                    width: 182px
                     margin-left: 24px
+                    margin-right: 0
     
     &__orderwindow
         background-color: #F5F5F5

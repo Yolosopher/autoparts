@@ -1,5 +1,5 @@
 let arrows = document.querySelectorAll('.filters__form__selectcontainer__arrow')
-
+arrows = [...arrows]
 const brandsSelect = document.getElementById('brands')
 const brandsSelectUl = document.querySelector('.selectbrands ul')
 const brandsOptions = brandsSelect.querySelectorAll('option')
@@ -15,7 +15,7 @@ arrows.forEach((arrow) => {
 	arrow.addEventListener('click', () => {
 		if (arrow.nextElementSibling.querySelector('li')) {
 			arrow.parentElement.classList.toggle('toggled')
-			let filtered = arrows.filter(arr != arrow)
+			let filtered = arrows.filter(arr => arr != arrow)
 			filtered.forEach(fil => {
 				fil.parentElement.classList.remove('toggled')
 			})
