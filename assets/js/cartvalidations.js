@@ -109,7 +109,7 @@ const totalpriceChecker = (el) => {
     if (el.value === '') {
         el.parentElement.classList.add('invalid')
         el.parentElement.classList.remove('invalid-shown')
-    } else if (val < 20) {
+    } else if (val < 5) {
         el.parentElement.classList.add('invalid')
         el.parentElement.classList.add('invalid-shown')
     } else {

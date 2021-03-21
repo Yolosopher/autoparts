@@ -238,6 +238,7 @@ const shopcartIncDecrementer = async (id = false, inp, prc, prcSPan, decrem = fa
 const updateTotalPrice = () => {
 	let alltotalprices = document.querySelectorAll('.header__bottom__shoppingcart__popup__ul__li__form__price span')
 	let inputtotalprice = document.getElementById('totalprice')
+	let inputdeliveryprice = document.getElementById('deliveryprice')
 	alltotalprices = [...alltotalprices]
 	let total = 0
 	alltotalprices.forEach(each => {
@@ -246,7 +247,7 @@ const updateTotalPrice = () => {
 	})
 
 	cartpagetotal !== null ? cartpagetotal.innerText = total : null
-	inputtotalprice !== null ? inputtotalprice.value = total : null
+	inputtotalprice !== null ? inputtotalprice.value = total + +inputdeliveryprice.value : null
 }
 
 updateTotalPrice()

@@ -646,9 +646,19 @@
 
         const initialiseformBtn = document.querySelector('.initialiseformBtn')
         const tabs = document.querySelector('.cartpageMain__orderwindow__form__tabs')
+        const agreetermslabel = document.querySelector('.cartpageMain__orderwindow__form__tabs__agreeterms label')
+
+
 
         initialiseformBtn.addEventListener('click', () => {
-            tabs.classList.add('pay')
+            if (agreetermsCheckboxChecker()) {
+                tabs.classList.add('pay')
+            } else {
+                agreetermslabel.classList.add('invalidshown')
+            }
+        })
+        agreetermsCheckbox.addEventListener('change', () => {
+            agreetermslabel.classList.remove('invalidshown')
         })
     </script>
     
