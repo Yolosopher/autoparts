@@ -19,7 +19,7 @@ telInput.addEventListener('change', () => {
     telChecker(telInput)
 })
 exactaddressInput.addEventListener('change', () => {
-    telChecker(exactaddressInput)
+    exactaddressChecker(exactaddressInput)
 })
 totalpriceInput.addEventListener('change', () => {
     totalpriceChecker(totalpriceInput)
@@ -72,8 +72,8 @@ const emailChecker = (el) => {
 }
 
 const telChecker = (el) => {
-    let value = telPut.value
-	let parent = telPut.parentElement
+    let value = el.value
+	let parent = el.parentElement
 	let ifTel = /^(5)\d{8}$/.test(value)
 
 	if (value === '') {
@@ -122,3 +122,26 @@ const agreetermsCheckboxChecker = () => {
     if (agreetermsCheckbox.checked) return true
     return false
 }
+
+
+const cartpageMainOrderwindowForm = document.querySelector('.cartpageMain__orderwindow__form')
+
+
+cartpageMainOrderwindowForm.addEventListener('submit', (e) => {
+    nameChecker(nameInput)
+    personalIdChecker(personalIdInput)
+    emailChecker(emailInput)
+    telChecker(telInput)
+    exactaddressChecker(exactaddressInput)
+    totalpriceChecker(totalpriceInput)
+    
+    
+    if (cartpageMainOrderwindowForm.querySelectorAll('.invalid')[0]) {
+        console.log('egaa')
+        
+        e.preventDefault()
+        cartpageMainOrderwindowForm.querySelectorAll('.invalid').forEach(each => {
+            each.classList.add('invalid-shown')
+        })
+    }
+})

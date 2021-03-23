@@ -128,30 +128,6 @@ div.default-ul ul li {
   list-style-position: inside;
 }
 
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none !important;
-  margin: 0 !important;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield !important;
-}
-
-.container {
-  margin: 0 auto;
-  padding: 0 30px;
-  width: 100%;
-}
-
-@media screen and (min-width: 1025px) {
-  .container {
-    max-width: 1066px;
-  }
-}
-
 html {
   font-family: crbldcaps;
   font-size: 16px;
@@ -2762,5 +2738,305 @@ body.smallheader .header {
 
 .result__btns {
   width: 100%;
+}
+
+.loginMain, .regisMain {
+  padding: 50px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+}
+
+@media screen and (min-width: 1025px) {
+  .loginMain, .regisMain {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    min-height: calc( 100vh - 376px);
+    padding: 30px;
+  }
+}
+
+.loginMain__form, .regisMain__form {
+  width: 100%;
+  max-width: 390px;
+  padding: 48px 24px 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 8px;
+}
+
+.loginMain__form:not(.regisMain__form), .regisMain__form:not(.regisMain__form) {
+  background-color: #F5F5F5;
+}
+
+@media screen and (min-width: 1025px) {
+  .loginMain__form:not(.regisMain__form), .regisMain__form:not(.regisMain__form) {
+    background-color: transparent;
+  }
+}
+
+.loginMain__form:not(.regisMain__form) .input-div, .regisMain__form:not(.regisMain__form) .input-div {
+  margin-bottom: 12px;
+  background-color: #fff;
+}
+
+@media screen and (min-width: 1025px) {
+  .loginMain__form:not(.regisMain__form) .input-div, .regisMain__form:not(.regisMain__form) .input-div {
+    background-color: transparent;
+    border: 1px solid #C5C5C5;
+  }
+}
+
+.loginMain__form:not(.regisMain__form) .input-div input, .regisMain__form:not(.regisMain__form) .input-div input {
+  color: #000000;
+  font-size: 15px;
+  line-height: 16px;
+  font-family: crreg;
+}
+
+.loginMain__form:not(.loginMain__form) .input-div, .regisMain__form:not(.loginMain__form) .input-div {
+  margin-bottom: 12px;
+  background-color: #fff;
+  border: 1px solid #C5C5C5;
+}
+
+.loginMain__form:not(.loginMain__form) .input-div input, .regisMain__form:not(.loginMain__form) .input-div input {
+  color: #000000;
+  font-size: 15px;
+  line-height: 16px;
+  font-family: crreg;
+}
+
+.loginMain h1, .loginMain h2, .regisMain h1, .regisMain h2 {
+  font-family: crbldcaps;
+  font-size: 15px;
+  line-height: 16px;
+  margin-bottom: 48px;
+}
+
+.loginMain__helperbox, .regisMain__helperbox {
+  width: 100%;
+  margin-bottom: 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: crreg;
+  font-size: 13px;
+  line-height: 14px;
+}
+
+.loginMain__helperbox .underlined, .regisMain__helperbox .underlined {
+  font-family: cr2019bld;
+  text-decoration: underline;
+}
+
+.loginMain__helperbox__passreset, .regisMain__helperbox__passreset {
+  white-space: nowrap;
+  text-align: right;
+}
+
+.regisMain {
+  padding: 50px 0;
+}
+
+.regisMain > *:not(.yellowbtn) {
+  -webkit-transition: none;
+  transition: none;
+}
+
+@media screen and (min-width: 1025px) {
+  .regisMain {
+    padding: 30px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+}
+
+.regisMain__controller {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 0 50px;
+}
+
+@media screen and (min-width: 1025px) {
+  .regisMain__controller {
+    display: none;
+  }
+}
+
+.regisMain__controller__legal {
+  margin-bottom: 12px;
+}
+
+.regisMain__form {
+  display: none;
+}
+
+@media screen and (min-width: 1025px) {
+  .regisMain__form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .regisMain.legal .regisMain__controller {
+    display: none;
+  }
+  .regisMain.legal .regisMain__form.legal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .regisMain.legal .regisMain__form.legal {
+    position: relative;
+    max-width: unset;
+  }
+  .regisMain.legal .regisMain__form.legal h2 {
+    cursor: pointer;
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    max-width: 388px;
+    height: 48px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .regisMain.legal .regisMain__form.legal::before {
+    content: '';
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #FFD001;
+    border-radius: 12px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .regisMain.individual .regisMain__controller {
+    display: none;
+  }
+  .regisMain.individual .regisMain__form.individual {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .regisMain:not(.legal) .regisMain__form.individual {
+    position: relative;
+    max-width: unset;
+  }
+  .regisMain:not(.legal) .regisMain__form.individual h2 {
+    cursor: pointer;
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    max-width: 388px;
+    height: 48px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .regisMain:not(.legal) .regisMain__form.individual::before {
+    content: '';
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #FFD001;
+    border-radius: 12px;
+  }
+}
+
+.input-div.invalid.invalid-shown {
+  border-color: #ff3434 !important;
 }
 /*# sourceMappingURL=style.css.map */
