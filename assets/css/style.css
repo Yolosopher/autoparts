@@ -76,11 +76,6 @@ input[type=number] {
   resize: none;
   -webkit-transition: .1s;
   transition: .1s;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -3045,5 +3040,68 @@ body.smallheader .header {
   line-height: 14px;
   margin-bottom: 12px;
   font-family: cr2019bld;
+}
+
+.rulesMain {
+  background-color: #fff;
+  padding: 46px 30px;
+}
+
+@media screen and (min-width: 1025px) {
+  .rulesMain {
+    padding: 106px  138px;
+  }
+}
+
+.rulesMain h1 {
+  font-family: crbldcaps;
+  font-size: 28px;
+  line-height: 29px;
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 1025px) {
+  .rulesMain h1 {
+    font-size: 36px;
+    line-height: 37px;
+    margin-bottom: 48px;
+  }
+}
+
+.rulesMain__textbox {
+  font-family: crreg;
+  cursor: text;
+  -webkit-touch-callout: unset;
+  -webkit-user-select: unset;
+  -moz-user-select: unset;
+  -ms-user-select: unset;
+  user-select: unset;
+  color: #444444;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+@media screen and (min-width: 1025px) {
+  .rulesMain__textbox {
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+
+.rulesMain__textbox h1, .rulesMain__textbox h2, .rulesMain__textbox h3, .rulesMain__textbox h4, .rulesMain__textbox h5, .rulesMain__textbox h6 {
+  font-family: crbldcaps;
+  font-size: 20px;
+  line-height: 21px;
+  margin-bottom: 40px;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 1025px) {
+  .rulesMain__textbox h1, .rulesMain__textbox h2, .rulesMain__textbox h3, .rulesMain__textbox h4, .rulesMain__textbox h5, .rulesMain__textbox h6 {
+    font-size: 28px;
+    line-height: 29px;
+    margin: 48px 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */
