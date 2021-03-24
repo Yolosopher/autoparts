@@ -3092,7 +3092,7 @@ body.smallheader .header {
   font-family: crbldcaps;
   font-size: 20px;
   line-height: 21px;
-  margin-bottom: 40px;
+  margin: 40px 0;
   color: #000000;
   text-transform: uppercase;
 }
@@ -3102,6 +3102,18 @@ body.smallheader .header {
     font-size: 28px;
     line-height: 29px;
     margin: 48px 0;
+  }
+}
+
+.rulesMain__textbox h3 {
+  font-size: 18px;
+  line-height: 19px;
+}
+
+@media screen and (min-width: 1025px) {
+  .rulesMain__textbox h3 {
+    font-size: 20px;
+    line-height: 21px;
   }
 }
 
@@ -3163,5 +3175,45 @@ body.smallheader .header {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.aboutusMain .default-ul ul {
+  margin: 40px 0;
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 1025px) {
+  .aboutusMain .default-ul ul {
+    margin: 48px 0;
+    margin-top: 91px;
+  }
+}
+
+.aboutusMain .default-ul li:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.aboutusMain .default-ul li::marker {
+  content: '';
+  display: none;
+}
+
+.aboutusMain .default-ul li::before {
+  content: '';
+  display: inline-block;
+  background-color: #FFD001;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+@media screen and (min-width: 1025px) {
+  .aboutusMain .default-ul li::before {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 12px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

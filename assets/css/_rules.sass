@@ -29,10 +29,13 @@
         h1, h2, h3, h4, h5, h6
             font-family: crbldcaps
             @include font(20px, 21px)
-            margin-bottom: 40px
+            margin: 40px 0
             color: $black
             text-transform: uppercase
             @include plus1025()
                 @include font(28px, 29px)
                 margin: 48px 0
-            
+        h3
+            @include font(18px, 19px)
+            @include plus1025()
+                @include font(20px, 21px)
