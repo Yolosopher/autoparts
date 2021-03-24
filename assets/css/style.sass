@@ -25,41 +25,39 @@
 @import registration
 
 
-.rulesMain
+@import rules
+
+.aboutusMain
     background-color: #fff
     padding: 46px 30px
+    display: grid
     @include plus1025()
+        display: block
         padding: 106px  138px
     h1
+        order: -1
         font-family: crbldcaps
         @include font(28px, 29px)
         margin-bottom: 40px
         @include plus1025()
+            order: 0
             @include font(36px, 37px)
             margin-bottom: 48px
 
-
-    &__textbox
-        font-family: crreg
-        cursor: text
-        -webkit-touch-callout: unset /* iOS Safari */
-        -webkit-user-select: unset /* Safari */
-        -khtml-user-select: unset /* Konqueror HTML */
-        -moz-user-select: unset /* Old versions of Firefox */
-        -ms-user-select: unset /* Internet Explorer/Edge */
-        user-select: unset 
-        color: #444444
-        @include font(13px, 20px)
+    &__imgbox
+        width: 100%
+        height: 244px
+        border-radius: 8px
+        overflow: hidden
+        margin-bottom: 40px
         @include plus1025()
-            @include font(15px, 20px)
             
-        h1, h2, h3, h4, h5, h6
-            font-family: crbldcaps
-            @include font(20px, 21px)
-            margin-bottom: 40px
-            color: $black
-            text-transform: uppercase
-            @include plus1025()
-                @include font(28px, 29px)
-                margin: 48px 0
-            
+            float: right
+            width: 49.2%
+            height: 322px
+            margin-left: 118px
+            margin-bottom: 91px
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
