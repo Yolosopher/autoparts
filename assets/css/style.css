@@ -3216,4 +3216,18 @@ body.smallheader .header {
     margin-right: 12px;
   }
 }
+
+.profileContent {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 72px;
+}
+
+@media screen and (min-width: 1025px) {
+  .profileContent {
+    -ms-grid-columns: 31.95% 1fr;
+        grid-template-columns: 31.95% 1fr;
+    grid-gap: 24px;
+  }
+}
 /*# sourceMappingURL=style.css.map */
