@@ -3341,4 +3341,16 @@ body.smallheader .header {
     max-width: 388px;
   }
 }
+
+.profileContent__main__orders {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.profileContent__main__orders__all {
+  min-width: 100%;
+}
 /*# sourceMappingURL=style.css.map */
