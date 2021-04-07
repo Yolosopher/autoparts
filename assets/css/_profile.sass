@@ -62,10 +62,16 @@
                             content: url(../img/profile-edit-icon.svg)
                             width: 24px
                             height: 24px
+            
             .yellowbtn
                 @include plus700()
                     max-width: 182px
             &__label, label
                 color: #C5C5C5
                 font-family: cr2019bld
-                
+            &.formChangepass
+                .profileContent__main__form__inputs
+                    @include plus1025()
+                        grid-template-columns: unset
+                    @include plus700()
+                        max-width: 388px

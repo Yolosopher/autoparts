@@ -3328,4 +3328,17 @@ body.smallheader .header {
   color: #C5C5C5;
   font-family: cr2019bld;
 }
+
+@media screen and (min-width: 1025px) {
+  .profileContent__main__form.formChangepass .profileContent__main__form__inputs {
+    -ms-grid-columns: unset;
+        grid-template-columns: unset;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .profileContent__main__form.formChangepass .profileContent__main__form__inputs {
+    max-width: 388px;
+  }
+}
 /*# sourceMappingURL=style.css.map */
