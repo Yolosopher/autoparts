@@ -42,11 +42,8 @@ const inCartNum = document.querySelector(
 	'.header__bottom__shoppingcart__number'
 )
 const setInputWidthByChars = (el) => {
-	el.style.width = `${
-		el.value.length > 2 ? el.value.length : 3
-	}ch`
+	el.style.width = `${el.value.length > 2 ? el.value.length : 3}ch`
 }
-
 
 const blueBG = document.querySelector('.blueBG')
 const burger = document.getElementById('burger')
@@ -147,7 +144,9 @@ shoppingcart.addEventListener('mouseenter', () => {
 shoppingcartPopup.addEventListener('mouseleave', () => {
 	shoppingcart.classList.remove('toggled')
 })
-const cartpagetotal = document.querySelector('.cartpageMain__products__infopanel__left__totalprice span')
+const cartpagetotal = document.querySelector(
+	'.cartpageMain__products__infopanel__left__totalprice span'
+)
 let shoppingCartLis = document.querySelectorAll(
 	'.header__bottom__shoppingcart__popup__ul__li'
 )
@@ -184,13 +183,12 @@ const shoppcartliinitialiser = async (li) => {
 	})
 }
 
-
 const shopcartRemover = async (id, el, all = false) => {
 	if (all) {
 		// let response = await axios.post(cartRemoveUrl, { all: true })
 		let response = { data: { success: true } }
 		if (response.data.success) {
-			el.forEach(each => each.remove())
+			el.forEach((each) => each.remove())
 			updateTotalPrice()
 		}
 	} else {
@@ -206,7 +204,13 @@ shoppingCartLis.forEach((li) => {
 	shoppcartliinitialiser(li)
 })
 
-const shopcartIncDecrementer = async (id = false, inp, prc, prcSPan, decrem = false) => {
+const shopcartIncDecrementer = async (
+	id = false,
+	inp,
+	prc,
+	prcSPan,
+	decrem = false
+) => {
 	let val = +inp.value
 	if (decrem) {
 		if (val !== 1) {
@@ -236,18 +240,22 @@ const shopcartIncDecrementer = async (id = false, inp, prc, prcSPan, decrem = fa
 }
 
 const updateTotalPrice = () => {
-	let alltotalprices = document.querySelectorAll('.header__bottom__shoppingcart__popup__ul__li__form__price span')
+	let alltotalprices = document.querySelectorAll(
+		'.header__bottom__shoppingcart__popup__ul__li__form__price span'
+	)
 	let inputtotalprice = document.getElementById('totalprice')
 	let inputdeliveryprice = document.getElementById('deliveryprice')
 	alltotalprices = [...alltotalprices]
 	let total = 0
-	alltotalprices.forEach(each => {
+	alltotalprices.forEach((each) => {
 		let price = +each.innerText
 		total += price
 	})
 
-	cartpagetotal !== null ? cartpagetotal.innerText = total : null
-	inputtotalprice !== null ? inputtotalprice.value = total + +inputdeliveryprice.value : null
+	cartpagetotal !== null ? (cartpagetotal.innerText = total) : null
+	inputtotalprice !== null
+		? (inputtotalprice.value = total + +inputdeliveryprice.value)
+		: null
 }
 
 updateTotalPrice()
@@ -256,12 +264,21 @@ addBtns.forEach((btn) => {
 		e.preventDefault()
 		let productId = btn.getAttribute('data-id')
 		let title = btn.parentElement.querySelector('h3').getAttribute('title')
-		let brand = btn.parentElement.querySelector('.topProducts__slider__wrapper__slide__info__value.brand').innerText
-		let code = btn.parentElement.querySelector('.topProducts__slider__wrapper__slide__info__value.code').innerText
-		let price = btn.parentElement.querySelector('.topProducts__slider__wrapper__slide__price span').innerText
-		let imgsrc = btn.parentElement.querySelector('.topProducts__slider__wrapper__slide__imgbox img').getAttribute('src')
-		let link = btn.parentElement.querySelector('.topProducts__slider__wrapper__slide__imgbox').getAttribute('href')
-		
+		let brand = btn.parentElement.querySelector(
+			'.topProducts__slider__wrapper__slide__info__value.brand'
+		).innerText
+		let code = btn.parentElement.querySelector(
+			'.topProducts__slider__wrapper__slide__info__value.code'
+		).innerText
+		let price = btn.parentElement.querySelector(
+			'.topProducts__slider__wrapper__slide__price span'
+		).innerText
+		let imgsrc = btn.parentElement
+			.querySelector('.topProducts__slider__wrapper__slide__imgbox img')
+			.getAttribute('src')
+		let link = btn.parentElement
+			.querySelector('.topProducts__slider__wrapper__slide__imgbox')
+			.getAttribute('href')
 
 		let response
 		try {
@@ -321,14 +338,15 @@ addBtns.forEach((btn) => {
 					</button>
 			`
 			let li = document.createElement('li')
-			
-			document.querySelector('.header__bottom__shoppingcart__popup__ul').appendChild(li)
+
+			document
+				.querySelector('.header__bottom__shoppingcart__popup__ul')
+				.appendChild(li)
 
 			li.classList.add('header__bottom__shoppingcart__popup__ul__li')
 			li.setAttribute('data-id', productId)
 			li.setAttribute('data-price', price)
 			li.innerHTML = innerhtml
-
 
 			await shoppcartliinitialiser(li)
 		}
@@ -337,20 +355,30 @@ addBtns.forEach((btn) => {
 
 if (isCartPage) {
 	document.querySelector('.header__bottom__shoppingcart__popup').remove()
-	let removeAllBtn = document.querySelector('.cartpageMain__products__infopanel__cleanBasket')
+	let removeAllBtn = document.querySelector(
+		'.cartpageMain__products__infopanel__cleanBasket'
+	)
 
 	removeAllBtn.addEventListener('click', () => {
-		let allCartLis = document.querySelectorAll('.cartpageMain .header__bottom__shoppingcart__popup__ul__li')
+		let allCartLis = document.querySelectorAll(
+			'.cartpageMain .header__bottom__shoppingcart__popup__ul__li'
+		)
 		allCartLis = [...allCartLis]
 		if (allCartLis[0]) {
 			shopcartRemover(true, allCartLis, true)
 		}
 	})
 }
-document.querySelectorAll('.header__bottom__shoppingcart__popup__ul__li__form').forEach(each => {
-	each.addEventListener('submit', e => e.preventDefault())
-})
-document.querySelectorAll('.header__bottom__shoppingcart__popup__ul__li__form__num').forEach(each => {
-	each.disabled = true
-})
-let allCartLis = document.querySelectorAll('.cartpageMain .header__bottom__shoppingcart__popup__ul__li')
+document
+	.querySelectorAll('.header__bottom__shoppingcart__popup__ul__li__form')
+	.forEach((each) => {
+		each.addEventListener('submit', (e) => e.preventDefault())
+	})
+document
+	.querySelectorAll('.header__bottom__shoppingcart__popup__ul__li__form__num')
+	.forEach((each) => {
+		each.disabled = true
+	})
+let allCartLis = document.querySelectorAll(
+	'.cartpageMain .header__bottom__shoppingcart__popup__ul__li'
+)
