@@ -179,25 +179,30 @@ filterProducts.querySelectorAll('li').forEach(filterli => {
 })
 
 const sortProducts = (decreasing = false) => {
-    const parent = document.querySelector('.productsMain__content__parts__ul')
-    console.log(parent)
-    console.log(parent.children)
-    const getPrice = (ele) =>
-        Number(ele.querySelector('.topProducts__slider__wrapper__slide__price span').innerText.replace(/[^\d.]+/g, '')) || 0
-    
-    let arr = []
-    arr.slice
-        .call(parent.children)
-        // sort them using custom sort function
-        .sort((a, b) => {
-            // get text content in .price and return difference
-            if (decreasing) return getPrice(b) - getPrice(a)
-            else return getPrice(a) - getPrice(b)
-            // iterate and append again in new sorted order
-        })
-        .forEach((ele) => {
-            parent.appendChild(ele)
-        })
+    setLoader(true)
+    setTimeout(() => {      
+        const parent = document.querySelector('.productsMain__content__parts__ul')
+        console.log(parent)
+        console.log(parent.children)
+        const getPrice = (ele) =>
+            Number(ele.querySelector('.topProducts__slider__wrapper__slide__price span').innerText.replace(/[^\d.]+/g, '')) || 0
+        
+        let arr = []
+        arr.slice
+            .call(parent.children)
+            // sort them using custom sort function
+            .sort((a, b) => {
+                // get text content in .price and return difference
+                if (decreasing) return getPrice(b) - getPrice(a)
+                else return getPrice(a) - getPrice(b)
+                // iterate and append again in new sorted order
+            })
+            .forEach((ele) => {
+                parent.appendChild(ele)
+            })
+        setLoader(false)
+    }, 800);
+        
 }
 
 

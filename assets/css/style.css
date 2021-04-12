@@ -3903,6 +3903,10 @@ body.smallheader .header {
   color: #000000;
 }
 
+.productsMain__content__filter.toggled .productsMain__content__filter__ul li.active {
+  pointer-events: none;
+}
+
 .productsMain__content__filter.toggled .productsMain__content__filter__arrow::after {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
@@ -4018,8 +4022,9 @@ body.smallheader .header {
 
 .productsMain__content.loaderon .loader {
   opacity: 1;
-  width: 100%;
-  height: 100%;
+  width: 30%;
+  height: 30vh;
+  z-index: 999;
 }
 
 .productsMain.prts .productsMain__content__categories, .productsMain.prts .productsMain__content__parts {
@@ -4034,13 +4039,13 @@ body.smallheader .header {
 }
 
 .productsMain .loader {
-  position: absolute;
+  position: fixed;
   bottom: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, 50%);
           transform: translate(-50%, 50%);
-  z-index: 1;
-  background-color: #FFD001;
+  z-index: -999;
+  background: #FFD001;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

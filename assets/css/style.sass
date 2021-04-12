@@ -174,6 +174,8 @@
                         opacity: 1
                         &:hover
                             color: $black
+                        &.active
+                            pointer-events: none
                 .productsMain__content__filter__arrow
                     &::after
                         transform: rotate(180deg)
@@ -235,9 +237,9 @@
         &.loaderon
             .loader
                 opacity: 1
-                width: 100%
-                height: 100%
-
+                width: 30%
+                height: 30vh
+                z-index: 999
     &.prts
         .productsMain__content__categories, .productsMain__content__parts
             transform: translateX(-100%)
@@ -247,12 +249,13 @@
             height: auto
 
     .loader
-        position: absolute
+        position: fixed
         bottom: 50%
         left: 50%
         transform: translate(-50%, 50%)
-        z-index: 1
-        background-color: $yellow
+        z-index: -999
+        background: $yellow
+        // background-image: linear-gra
         display: flex
         justify-content: center
         align-items: center
@@ -264,5 +267,7 @@
 
         transition: z-index .1s .1s linear, all .1s ease-out
 
-
+        // opacity: 1
+        // width: 100%
+        // height: 100vh
         
