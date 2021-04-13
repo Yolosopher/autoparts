@@ -231,6 +231,23 @@ innerLis.forEach((innercatli) => {
 					})
 					newLisH3.addEventListener('click', () => {})
 				})
+                if (window.innerWidth <= 1024) {
+                    let hmpgTopProducts = new Swiper('.topProducts__slider', {
+                        spaceBetween: 24,
+                        slidesPerView: 'auto',
+                        // observeParents: true,
+                        // observer: true,
+                        pagination: {
+                            el: '.topProducts__slider__pagination',
+                            type: 'bullets',
+                            clickable: true,
+                        },
+                        navigation: {
+                            nextEl: '.topProducts__slider__navRight',
+                            prevEl: '.topProducts__slider__navLeft',
+                        },
+                    })
+                }
 				// hide loader
 				setLoader(false)
 
