@@ -271,3 +271,112 @@
         // width: 100%
         // height: 100vh
         
+.modalbg
+    position: fixed
+    top: 0
+    right: 0
+    width: 0
+    height: 0
+    opacity: 0
+    overflow: hidden
+    z-index: -999
+    background-color:  rgba(0, 0, 0, 0.3)
+    backdrop-filter: blur(10px)
+    &.shown
+        opacity: 1
+        z-index: 100    
+        width: 100%
+        height: 100vh
+.productModal
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    border-radius: 12px
+    background-color: #fff
+    min-height: max-content
+    display: flex
+    overflow: hidden
+    flex-direction: column
+    width: 0
+    height: 0
+    opacity: 0
+    z-index: -999
+    transition: z-index .3s .3s, opacity .3s ease-out, width .3s ease-out, height .3s ease-out
+    @include plus700()
+        max-width: 594px
+    &.shown
+        width: calc( 100% - 60px )
+        height: 60%
+        opacity: 1
+        z-index: 101  
+        transition: z-index 0s, opacity .3s ease-out, width .3s ease-out, height .3s ease-out
+        @include plus700()
+            height: 488px
+    &__X
+        position: absolute
+        right: 20px
+        top: 20px
+        content: url(../img/closemodal.svg)
+        cursor: pointer
+    &__top
+        padding: 20px
+        padding-top: 47px
+        padding-bottom: 20px
+        width: 100%
+        @include plus700()    
+            display: grid 
+            grid-template-columns: 1fr 1fr
+            grid-gap: 24px
+            padding-top: 20px
+            padding-bottom: 32px
+        &__imgbox
+            width: 100%
+            height: 148px
+            img
+                width: 100%
+                height: 100%
+                object-fit: scale-down
+        &__maininfo
+            font-family: crbldcaps
+            @include plus700()
+                display: flex
+                flex-direction: column
+                justify-content: center
+            h1
+                @include font(15px, 16px)
+                margin-bottom: 10px
+            &__price
+                @include font(24px, 25px)
+                
+    &__bottom
+        flex-grow: 1
+        width: 100%
+        background-color: #F5F5F5
+        padding: 20px
+        h2
+            font-family: crbldcaps
+            @include font(15px, 16px)
+            margin-bottom: 20px
+        &__ul
+            display: grid
+            grid-gap: 4px
+            width: 100%
+            grid-auto-rows: 32px
+            li
+                display: flex
+                align-items: center
+                justify-content: space-between
+                height: 100%
+                width: 100%
+                border-radius: 8px
+                background-color: #fff
+                color: $black
+                @include font(13px, 14px)
+                font-family: crcaps
+                padding-left: 8px
+                padding-right: 8px
+                @include plus700()
+                    padding-right: 16px
+
+                    

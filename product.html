@@ -354,6 +354,36 @@
     </main>
     <!-- /products main -->
 
+    <!-- modal bg -->
+    <div class="modalbg"></div>
+    <!-- /modal bg -->
+
+    <!-- product modal -->
+    <div class="productModal">
+        <div class="productModal__X" id="productModalX"></div>
+        <div class="productModal__top">
+            <div class="productModal__top__imgbox">
+                <img id="productModalImage" src="assets/img/parts/catphoto1.jpg" alt="">
+            </div>
+            <div class="productModal__top__maininfo">
+                <h1 id="productModalName">პროდუქტის დასახელება</h1>
+                <div class="productModal__top__maininfo__price">₾<span id="productModalPrice">598.99</span></div>
+            </div>
+        </div>
+        <div class="productModal__bottom">
+            <h2>პარამეტრები</h2>
+            <ul class="productModal__bottom__ul">
+                <li>კოდი:<span id="productModalCode">cf546865465</span></li>
+                <li>ბრენდი:<span id="productModalBrand">lamborghini</span></li>
+                <li>რაოდენობა:<span id="productModalQuantity">2</span></li>
+                <li>სიგანე:<span id="productModalWidth">2.2</span></li>
+                <li>დიამეტრი:<span id="productModalDiameter">2.2</span></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /product modal -->
+
+
     <!-- footer -->
     <footer class="footer">
         <a class="footer__logo" href="index.html"><img src="assets/img/footerlogo.svg"></a>
@@ -426,7 +456,15 @@
 
     <!-- for product.html only -->
     <script>
-        let URL_FOR_CATEGORIES = ''
+
+        let URL_FOR_CATEGORIES = '' // POST მიიღებ კატეგორიის id-ს { category: 23 }
+
+        let URL_FOR_PRODUCTINFO = '' // POST მიიღებ პროდუქტის { id: 10 }
+
+
+        let openProductAsap = false // ეს იყოს თრუ, თუ პირდაპირ პროდუქტის გახსნაა საჭირო ანუ პროდუქტის ლინკს როცა დაეჭირება
+
+        
     </script>
     <script src="assets/js/product.js"></script>
 </body>
