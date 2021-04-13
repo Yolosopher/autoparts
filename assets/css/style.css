@@ -4020,6 +4020,10 @@ body.smallheader .header {
   }
 }
 
+.productsMain__content__parts__ul__li img, .productsMain__content__parts__ul__li h3 {
+  cursor: pointer;
+}
+
 .productsMain__content.loaderon .loader {
   opacity: 1;
   width: 30%;
