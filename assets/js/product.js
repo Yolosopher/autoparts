@@ -20,10 +20,10 @@ const productModalWidth = document.getElementById('productModalWidth')
 const productModalDiameter = document.getElementById('productModalDiameter')
 
 const productModalX = document.getElementById('productModalX')
+const modalbg = document.querySelector('.modalbg')
+const productModal = document.querySelector('.productModal')
 
 const toggleProductModal = (reset = false) => {
-    const modalbg = document.querySelector('.modalbg')
-    const productModal = document.querySelector('.productModal')
     if (!reset) {
         modalbg.classList.add('shown')
         setTimeout(() => {
@@ -343,6 +343,9 @@ const setLoader = (value) => {
 }
 
 productModalX.addEventListener('click', () => {
+	toggleProductModal(true)
+})
+modalbg.addEventListener('click', () => {
 	toggleProductModal(true)
 })
 if (openProductAsap) {

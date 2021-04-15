@@ -71,6 +71,7 @@
                         color: #fff
                         padding: 0 20px
                         cursor: pointer
+                        overflow: hidden
                         &.active, &:hover
                             background-color: #20489D
 
@@ -267,18 +268,19 @@
     overflow: hidden
     flex-direction: column
     width: 0
-    height: 0
+    min-height: 0
+    height: auto
     opacity: 0
     z-index: -999
-    transition: z-index .3s .3s, opacity .3s ease-out, width .3s ease-out, height .3s ease-out
+    transition: z-index .3s .3s, opacity .3s ease-out, width .3s ease-out, min-height .3s ease-out
     @include plus700()
         max-width: 594px
     &.shown
         width: calc( 100% - 60px )
-        height: 60%
+        min-height: 60%
         opacity: 1
-        z-index: 101  
-        transition: z-index 0s, opacity .3s ease-out, width .3s ease-out, height .3s ease-out
+        z-index: 101
+        transition: z-index 0s, opacity .3s ease-out, width .3s ease-out, min-height .3s ease-out
         @include plus700()
             height: 488px
     &__X
