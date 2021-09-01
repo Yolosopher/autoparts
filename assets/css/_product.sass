@@ -282,7 +282,71 @@
         z-index: 101
         transition: z-index 0s, opacity .3s ease-out, width .3s ease-out, min-height .3s ease-out
         @include plus700()
-            height: 488px
+            // height: 488px
+
+    &__link
+        display: flex
+        align-items: center
+        padding: 6px 0
+        height: 48px
+        width: 100%
+        border-radius: 8px
+        padding-right: 6px
+        padding-left: 12px
+        border: 1px solid #c5c5c5
+        background-color: #fff
+        // margin-bottom: 16px
+
+        @include plus700()
+            padding-left: 16px
+        input
+            font-family: crreg
+            color: #000000
+            @include font(12px, 12px)
+            height: 100%
+            flex-grow: 1
+            cursor: text
+            flex-basis: 0
+        &__copy
+            cursor: pointer
+            margin-left: 23px
+            padding: 0 20px
+            color: #444444
+            display: flex
+            background-color: #F5F5F5
+            font-family: crbldcaps
+            justify-content: center
+            align-items: center
+            border-radius: 6px
+            height: 36px
+            overflow: hidden
+            padding-top: 4px
+            position: relative
+            @include font(12px, 16px)
+            @include plus700()
+                margin-left: 32px
+            &::after
+                content: 'Copied'
+                position: absolute
+                cursor: default
+                z-index: 1
+                width: 100%
+                height: 100%
+                opacity: 0
+                pointer-events: none
+                background-color: inherit
+                display: flex
+                justify-content: center
+                align-items: center
+                left: 100%
+                top: 0
+                transition: opacity .4s ease-out, left 0s .4s ease-out
+            &.copied
+                &::after
+                    left: 0
+                    opacity: 1
+                    transition: opacity .4s ease-out
+
     &__X
         position: absolute
         right: 20px
@@ -333,6 +397,7 @@
             grid-gap: 4px
             width: 100%
             grid-auto-rows: 32px
+            margin-bottom: 16px
             li
                 display: flex
                 align-items: center

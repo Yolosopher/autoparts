@@ -199,6 +199,47 @@
     <div class="blueBG"></div>
     <!-- /responsive background -->
 
+    <!-- filters -->
+    <div class="filters container">
+        <form class="filters__form"> 
+            <div class="filters__form__selectcontainer selectbrands">
+                <select name="brands" id="brands">
+                    <option value="bmw">bmw</option>
+                    <option value="mercedes">mercedes</option>
+                    <option value="jeep">jeep</option>
+                    <option value="honda">honda</option>
+                    <option value="audi">audi</option>
+                    <option value="kia">kia</option>
+                    <option value="nissan">nissan</option>
+                </select>
+                <div class="filters__form__selectcontainer__chosen">ბრენდი</div>
+                <div class="filters__form__selectcontainer__arrow"></div>
+                <ul class="filters__form__selectcontainer__ul">
+
+                </ul>
+            </div>           
+            <div class="filters__form__selectcontainer selectmodels">
+                <select name="models" id="models">
+                </select>
+                <div class="filters__form__selectcontainer__chosen">მოდელი</div>
+                <div class="filters__form__selectcontainer__arrow"></div>
+                <ul class="filters__form__selectcontainer__ul">
+
+                </ul>
+            </div>           
+            <div class="filters__form__selectcontainer selectcars">
+                <select name="cars" id="cars">
+                </select>
+                <div class="filters__form__selectcontainer__chosen">ავტომობილი</div>
+                <div class="filters__form__selectcontainer__arrow"></div>
+                <ul class="filters__form__selectcontainer__ul">
+
+                </ul>
+            </div>
+        </form>
+    </div>
+    <!-- /filters -->
+
     <!-- searchbar -->
     <div class="searchbar__container container">
         <form class="searchbar" id="searchbar">
@@ -686,7 +727,19 @@
 
     </script>
     <!-- /cartpopup requests -->
+    <script>
+        const brandsURL = '{{ }}' // აქ უნდა ჩაიწეროს brands-ზე საგზავნი url რომელსაც POST რიქვესთზე გამოყვება data შემდეგნაირად
+        /*
+            {
+                value: //აქ იქნება არჩეული ბრენდი//
+            }
+        */
+        const modelsURL = '{{ }}' // აქაც იგივე ოღონდ მოდელების url POST-ზე
+        
+        document.querySelector('.filters__form').addEventListener('submit', e => e.preventDefault())
 
+    </script>
+    <script src="assets/js/selects.js"></script>
     <script src="assets/js/main.js"></script>
     <!-- for homepageonly -->
 </body>

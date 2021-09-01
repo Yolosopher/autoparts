@@ -222,171 +222,28 @@
     </div>
     <!-- /searchbar -->
 
-    <!-- product added message -->
-    <a href="cart.html" class="productAddMessage">
-        <span class="productAddMessage__success">პროდუქტი დაემატა კალათაში</span>
-        <span class="productAddMessage__error">პროდუქტი ვერ დაემატა კალათაში</span>
-    </a>
-    <!-- /product added message -->
 <!-- /layout -->
 
     <!-- navigation info -->
-    <section class="navinfo"><a href="index.html" class="navinfo__tab">მთავარი</a><span class="navinfo__hr">/</span><a href="product.html" class="navinfo__tab">პროდუქცია</a><span class="navinfo__hr">/</span><a href="product.html" class="navinfo__tab">ავტომობილის სახელი</a></section>
+    <section class="navinfo"><a href="index.html" class="navinfo__tab">მთავარი</a><span class="navinfo__hr">/</span><a href="profile.html" class="navinfo__tab">კაბინეტი</a></section>
     <!-- /navigation info -->
 
-    <!-- products main -->
-    <main class="productsMain">
-        <div class="productsMain__categories">
-            <ul class="productsMain__categories__ul">
-                <li data-id="1" class="productsMain__categories__ul__li" style="--maxheight: max-content">
-                    <span>ჯვარა (კრესტავინა)</span>
-                    <ul class="productsMain__categories__ul__li__ul">
-                        <li class="productsMain__categories__ul__li__ul__li">ჯვარა (კრესტავინა) 1</li>
-                        <li class="productsMain__categories__ul__li__ul__li">ჯვარა (კრესტავინა) 2</li>
-                        <li class="productsMain__categories__ul__li__ul__li">ჯვარა (კრესტავინა) 3</li>
-                        <li class="productsMain__categories__ul__li__ul__li">ჯვარა (კრესტავინა) 4</li>
-                        <li class="productsMain__categories__ul__li__ul__li">ჯვარა (კრესტავინა) 5</li>
-                    </ul>
-                </li>
-                <li data-id="2" class="productsMain__categories__ul__li" style="--maxheight: max-content">
-                    <span>ანთების სანთლის ჩობალი</span>
-                    <ul class="productsMain__categories__ul__li__ul">
-                        <li class="productsMain__categories__ul__li__ul__li">ანთების სანთლის ჩობალი 1</li>
-                        <li class="productsMain__categories__ul__li__ul__li">ანთების სანთლის ჩობალი 2</li>
-                        <li class="productsMain__categories__ul__li__ul__li">ანთების სანთლის ჩობალი 3</li>
-                        <li class="productsMain__categories__ul__li__ul__li">ანთების სანთლის ჩობალი 4</li>
-                    </ul>
-                </li>
-                <li data-id="3" class="productsMain__categories__ul__li" style="--maxheight: max-content">
-                    <span>რადიატორის ხუფი</span>
-                    <ul class="productsMain__categories__ul__li__ul">
-                        <li class="productsMain__categories__ul__li__ul__li">რადიატორის ხუფი 1</li>
-                        <li class="productsMain__categories__ul__li__ul__li">რადიატორის ხუფი 2</li>
-                        <li class="productsMain__categories__ul__li__ul__li">რადიატორის ხუფი 3</li>
-                        <li class="productsMain__categories__ul__li__ul__li">რადიატორის ხუფი 4</li>
-                        <li class="productsMain__categories__ul__li__ul__li">რადიატორის ხუფი 5</li>
-                        <li class="productsMain__categories__ul__li__ul__li">რადიატორის ხუფი 6</li>
-                        <li class="productsMain__categories__ul__li__ul__li">რადიატორის ხუფი 7</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div class="productsMain__content">
-            <div class="loader">
-                <!-- By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL -->
-                <svg width="90" height="90" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
-                    <g fill="none" fill-rule="evenodd" transform="translate(1 1)" stroke-width="2">
-                        <circle cx="22" cy="22" r="6" stroke-opacity="0">
-                            <animate attributeName="r"
-                                begin="1.5s" dur="3s"
-                                values="6;22"
-                                calcMode="linear"
-                                repeatCount="indefinite" />
-                            <animate attributeName="stroke-opacity"
-                                begin="1.5s" dur="3s"
-                                values="1;0" calcMode="linear"
-                                repeatCount="indefinite" />
-                            <animate attributeName="stroke-width"
-                                begin="1.5s" dur="3s"
-                                values="2;0" calcMode="linear"
-                                repeatCount="indefinite" />
-                        </circle>
-                        <circle cx="22" cy="22" r="6" stroke-opacity="0">
-                            <animate attributeName="r"
-                                begin="3s" dur="3s"
-                                values="6;22"
-                                calcMode="linear"
-                                repeatCount="indefinite" />
-                            <animate attributeName="stroke-opacity"
-                                begin="3s" dur="3s"
-                                values="1;0" calcMode="linear"
-                                repeatCount="indefinite" />
-                            <animate attributeName="stroke-width"
-                                begin="3s" dur="3s"
-                                values="2;0" calcMode="linear"
-                                repeatCount="indefinite" />
-                        </circle>
-                        <circle cx="22" cy="22" r="8">
-                            <animate attributeName="r"
-                                begin="0s" dur="1.5s"
-                                values="6;1;2;3;4;5;6"
-                                calcMode="linear"
-                                repeatCount="indefinite" />
-                        </circle>
-                    </g>
-                </svg>
-            </div>
-            <div class="productsMain__content__filter">
-                <div class="productsMain__content__filter__arrow"></div>
-                <ul class="productsMain__content__filter__ul">
-                    <li data-sort="incr" class="active">დაალაგე: ფასის ზრდადობით</li>
-                    <li data-sort="decr">დაალაგე: ფასის კლებადობით</li>
-                </ul>
-            </div>
-            <div class="productsMain__content__categories">
-                <ul class="productsMain__content__categories__ul">
-                    <li class="productsMain__content__categories__ul__li" data-id="1">
-                        <div class="productsMain__content__categories__ul__li__imgbox">
-                            <img src="assets/img/parts/catphoto1.jpg" alt="catphoto1">
-                        </div>
-                        <h2>ჯვარა (კრესტავინა)</h2>
-                    </li>
-                    <li class="productsMain__content__categories__ul__li" data-id="2">
-                        <div class="productsMain__content__categories__ul__li__imgbox">
-                            <img src="assets/img/parts/catphoto2.jpg" alt="catphoto2">
-                        </div>
-                        <h2>ანთების სანთლის ჩობალი</h2>
-                    </li>
-                    <li class="productsMain__content__categories__ul__li" data-id="3">
-                        <div class="productsMain__content__categories__ul__li__imgbox">
-                            <img src="assets/img/parts/catphoto3.jpg" alt="catphoto3">
-                        </div>
-                        <h2>რადიატორის ხუფი</h2>
-                    </li>
-                </ul>
-            </div>
-            <div class="productsMain__content__parts">
-                <div class="topProducts__slider swiper-container">
-                    <ul class="topProducts__slider__wrapper swiper-wrapper productsMain__content__parts__ul"></ul>
-                </div>
-            </div>
-        </div>
+    <!-- profile content -->
+    <main class="searcherror">
+        <svg id="search-24px_2_" data-name="search-24px (2)" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+            <path id="Path_93" data-name="Path 93" d="M0,0H56V56H0Z" fill="none"/>
+            <g id="search_1_" data-name="search (1)" transform="translate(6.506 6.506)">
+                <path id="Union_6" data-name="Union 6" d="M31.856,31.858a18.663,18.663,0,1,1,5.465-13.2,18.6,18.6,0,0,1-5.465,13.2l10.132,10.13Z" transform="translate(0 0)" fill="none" stroke="#ff3434" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="x" transform="translate(13.506 13.506)">
+                <path id="Path_889" data-name="Path 889" d="M18,6,6,18" fill="none" stroke="#ff3434" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                <path id="Path_890" data-name="Path 890" d="M6,6,18,18" fill="none" stroke="#ff3434" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+        </svg> 
+        <p class="searcherror__warning">თქვენს მიერ არჩეული პროდუქტი არ მოიძებნა</p>
+        <a class="searcherror__gobacktohomepage" href="index.html">უკან დაბრუნება</a>
     </main>
-    <!-- /products main -->
-
-    <!-- modal bg -->
-    <div class="modalbg"></div>
-    <!-- /modal bg -->
-
-    <!-- product modal -->
-    <div class="productModal">
-        <div class="productModal__X" id="productModalX"></div>
-        <div class="productModal__top">
-            <div class="productModal__top__imgbox">
-                <img id="productModalImage" src="" alt="">
-            </div>
-            <div class="productModal__top__maininfo">
-                <h1 id="productModalName">პროდუქტის დასახელება</h1>
-                <div class="productModal__top__maininfo__price">₾<span id="productModalPrice">598.99</span></div>
-            </div>
-        </div>
-        <div class="productModal__bottom">
-            <h2>პარამეტრები</h2>
-            <ul class="productModal__bottom__ul">
-                <li>კოდი:<span id="productModalCode">cf546865465</span></li>
-                <li>ბრენდი:<span id="productModalBrand">lamborghini</span></li>
-                <li>რაოდენობა:<span id="productModalQuantity">2</span></li>
-                <li>სიგანე:<span id="productModalWidth">2.2</span></li>
-                <li>დიამეტრი:<span id="productModalDiameter">2.2</span></li>
-            </ul>
-            <div class="productModal__link">
-                <input type="url" name="url" disabled id="url" value="https://app.slack.com/client/T0N5DDE9M/G01QP4F407K">
-                <button type="button" class="productModal__link__copy">დაკოპირება</button>
-            </div>
-        </div>
-    </div>
-    <!-- /product modal -->
-
+    <!-- /profile content -->
 
     <!-- footer -->
     <footer class="footer">
@@ -426,20 +283,12 @@
         </div>
     </footer>
     <!-- /footer -->
+
     <!-- import packages -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
 
     <!-- scripts -->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <!-- add product url -->
-    <script>
-
-        let addProductURL = '' // პროდუქტის დამატების url POST request-ისთვის. პასუხი მომივიდეს 
-        // მოგივა json შემდეგნაირი { productsInBasket: 5 }
-
-    </script>
-    <!-- /add product url -->
-
+    
     <!-- cartpopup requests -->
     <script>
 
@@ -456,19 +305,7 @@
     <!-- /cartpopup requests -->
 
     <script src="assets/js/main.js"></script>
-
-    <!-- for product.html only -->
-    <script>
-
-        let URL_FOR_CATEGORIES = '' // POST მიიღებ კატეგორიის id-ს { category: 23 }
-
-        let URL_FOR_PRODUCTINFO = '' // POST მიიღებ პროდუქტის { id: 10 }
-
-
-        let openProductAsap = true // ეს იყოს თრუ, თუ პირდაპირ პროდუქტის გახსნაა საჭირო ანუ პროდუქტის ლინკს როცა დაეჭირება
-
-
-    </script>
-    <script src="assets/js/product.js"></script>
+    <!-- for profile-orders.html only --> 
+    <!-- <script src="assets/js/profile-orders.js"></script> -->
 </body>
 </html>

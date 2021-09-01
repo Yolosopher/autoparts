@@ -1,3 +1,4 @@
+const urlInput = document.getElementById('url')
 const catLis = document.querySelectorAll('.productsMain__categories__ul__li')
 const innerLis = document.querySelectorAll(
 	'.productsMain__categories__ul__li__ul__li'
@@ -350,4 +351,23 @@ modalbg.addEventListener('click', () => {
 })
 if (openProductAsap) {
     toggleProductModal()
+}
+// copyclipboard
+const copyToClipboard = str => {
+	const el = document.createElement('textarea');
+	el.value = str;
+	document.body.appendChild(el);
+	el.select();
+	document.execCommand('copy');
+	document.body.removeChild(el);
+};
+const copybtn = document.querySelector('.productModal__link__copy')
+if (!!copybtn) {
+	copybtn.addEventListener('click', () => {
+		copybtn.classList.add('copied')
+		copyToClipboard(urlInput.value)
+		setTimeout(() => {
+			copybtn.classList.remove('copied')
+		}, 3000);
+	})
 }

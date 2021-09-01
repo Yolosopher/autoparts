@@ -41,4 +41,103 @@
 
     
     
+.searcherror
+    padding: 50px 30px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    background-color: #fff
+    @include plus1025()
+        // flex-direction: row
+        min-height: calc( 100vh - 376px )
+        padding: 30px
+    svg
+        margin-bottom: 28px
+    &__warning
+        margin-bottom: 48px
+        font-family: crreg
+        @include font(15px, 25px)
+        color: black
+    &__gobacktohomepage
+        border: 1px solid black
+        border-radius: 8px
+        height: 48px
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 100%
+        font-family: crbldcaps
+        max-width: 312px
+        @include font(15px, 20px)
+        
 
+
+#searchbarMobile
+    display: none !important
+
+
+.filters__form__selectcontainer__chosen
+    cursor: pointer
+
+.filters__form__selectcontainer__arrow
+    pointer-events: none
+
+
+.yearsearchbox
+    display: flex
+    align-items: center
+    margin-bottom: 20px
+    order: -1
+    &__input
+        width: 0
+        flex-grow: 1
+        display: flex
+        height: 36px
+        border-radius: 8px
+        border: 1px solid #C5C5C5
+        padding: 0 16px
+        align-items: center
+        margin-right: 12px
+        font-family: crreg
+        @include font(14px, 19px)
+        
+    button
+        display: flex
+        justify-content: center
+        align-items: center
+        border-radius: 4px
+        background-color: $yellow
+        height: 36px
+        cursor: pointer
+        width: 36px
+        &::after
+            content: url(../img/srchbtn.svg)
+            display: inline-block
+            width: 24px
+            height: 24px
+
+
+
+.selectcars 
+    ul
+        padding-top: 0 !important
+
+#loadmore
+    cursor: pointer
+    border-radius: 8px
+    background-color: #F5F5F5
+    color: #C5C5C5
+    font-family: crbldcaps
+    height: 36px
+    padding: 0 20px
+    width: max-content
+    display: flex
+    @include font(13px, 17px)
+    align-items: center
+    text-transform: uppercase
+    font-feature-settings: "case" on
+
+.productsMain__content__categories__ul__li h2
+    padding: 0 10px
+    text-align: center

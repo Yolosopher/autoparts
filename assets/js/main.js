@@ -1,7 +1,8 @@
+let _token = document.querySelector('input[name=_token]') ? document.querySelector('input[name=_token]').value : undefined
 // set LANG ACTIVE
 const langActiveLiAINTEXT = document.querySelector(
 	'.languagebar__ul li.active a'
-).innerText
+).innerText.trim()
 const activeLangSpan = document.querySelector('.languagebar__active')
 activeLangSpan.innerText = langActiveLiAINTEXT
 const isHomePage = Boolean(document.querySelector('.topProducts'))
@@ -168,9 +169,9 @@ const shoppcartliinitialiser = async (li) => {
 		'.header__bottom__shoppingcart__popup__ul__li__form__price span'
 	)
 
-	let removebtn = li.querySelector(
-		'.header__bottom__shoppingcart__popup__ul__li__removebtn'
-	)
+	// let removebtn = li.querySelector(
+	// 	'.header__bottom__shoppingcart__popup__ul__li__removebtn'
+	// )
 
 	plus.addEventListener('click', () => {
 		shopcartIncDecrementer(id, input, unitPrice, priceSpan)
@@ -178,22 +179,22 @@ const shoppcartliinitialiser = async (li) => {
 	minus.addEventListener('click', () => {
 		shopcartIncDecrementer(id, input, unitPrice, priceSpan, true)
 	})
-	removebtn.addEventListener('click', () => {
-		shopcartRemover(id, li)
-	})
+	// removebtn.addEventListener('click', () => {
+	// 	shopcartRemover(id, li)
+	// })
 }
 
 const shopcartRemover = async (id, el, all = false) => {
 	if (all) {
-		// let response = await axios.post(cartRemoveUrl, { all: true })
-		let response = { data: { success: true } }
+		let response = await axios.post(cartRemoveUrl, { all: true })
+		// let response = { data: { success: true } }
 		if (response.data.success) {
 			el.forEach((each) => each.remove())
 			updateTotalPrice()
 		}
 	} else {
-		// let response = await axios.post(cartRemoveUrl, { id })
-		let response = { data: { success: true } }
+		let response = await axios.post(cartRemoveUrl, { id })
+		// let response = { data: { success: true } }
 		if (response.data.success) {
 			el.remove()
 			updateTotalPrice()
@@ -213,12 +214,16 @@ const shopcartIncDecrementer = async (
 ) => {
 	let val = +inp.value
 	if (decrem) {
+		console.log('check here! 2')
 		if (val !== 1) {
 			--val
-			// let response = await axios.post(cartChangeUrl, { id, quantity: val })
-			let response = { data: { success: true } }
-			if (response.data.success) {
+			let response = await axios.post(cartChangeUrl, { id, token: _token, action: 'minus' })
+			console.log('before response.data')
+			// let response = { data: { success: true } }
+			console.log(response.data)
+			if (response.data.status) {
 				inp.value = val
+				inCartNum.innerText = response.data.cart_items_count
 			} else {
 				return false
 			}
@@ -227,10 +232,12 @@ const shopcartIncDecrementer = async (
 		}
 	} else {
 		++val
-		// let response = await axios.post(cartChangeUrl, { id, quantity: val })
-		let response = { data: { success: true } }
-		if (response.data.success) {
+		let response = await axios.post(cartChangeUrl, { id, token: _token, action: 'plus' })
+		// let response = { data: { success: true } }
+		console.log(response.data)
+		if (response.data.status) {
 			inp.value = val
+			inCartNum.innerText = response.data.cart_items_count
 		} else {
 			return false
 		}
@@ -279,26 +286,28 @@ const addBtnHandler = async (btn) => {
 
 	let response
 	try {
-		// response = await axios.post(addProductURL, {
-		// 	id: productId
-		// })
-		response = {
-			data: {
-				productsInBasket: 5,
-			},
-		}
+		response = await axios.post(addProductURL, {
+			id: productId,
+			qty: 1,
+			token: _token
+		})
+		// response = {
+		// 	data: {
+		// 		productsInBasket: 5,
+		// 	},
+		// }
 	} catch (error) {
 		console.log(error.message)
 	}
-
-	if (!response.data) {
+	console.log(response.data)
+	if (!response.data.status) {
 		addInBasketMessage.classList.add('error')
 		addInBasketMessage.classList.add('shown')
 		setTimeout(() => {
 			addInBasketMessage.classList.remove('shown')
 		}, 3000)
 	} else {
-		inCartNum.innerText = response.data.productsInBasket
+		inCartNum.innerText = response.data.cart_items_count
 		addInBasketMessage.classList.remove('error')
 		addInBasketMessage.classList.add('shown')
 		setTimeout(() => {
@@ -330,9 +339,9 @@ const addBtnHandler = async (btn) => {
 					</div>
 				</form>
 				<div class="header__bottom__shoppingcart__popup__ul__li__form__price">₾<span>${price}</span></div>
-				<button type="button" class="header__bottom__shoppingcart__popup__ul__li__removebtn">
+				<a href="${window.location.href + '/' + 'cart-remove/' + productId}" class="header__bottom__shoppingcart__popup__ul__li__removebtn">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0,0H24V24H0Z" fill="none"/><path d="M19,13H13v6H11V13H5V11h6V5h2v6h6Z" transform="translate(12 -4.971) rotate(45)"/></svg>
-				</button>
+				</a>
 		`
 		let li = document.createElement('li')
 

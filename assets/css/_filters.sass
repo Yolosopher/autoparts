@@ -34,8 +34,9 @@
                 width: 100%
 
                 display: grid
-                grid-gap: 8px
-                grid-auto-rows: 32px
+                grid-gap: 32px
+                
+                // grid-auto-rows: 32px
                 max-height: 0
                 padding: 0 24px
                 z-index: 1
@@ -45,6 +46,9 @@
                 // box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05)
                 transition: .1s ease
                 @include plus1025()
+                    // grid-auto-rows: 32px
+                    grid-auto-rows: auto
+                    grid-gap: 8px
                     grid-template-columns: repeat(4, 1fr)
                 li
                     display: flex
@@ -61,6 +65,9 @@
                         color: $black
                         transition: color .1s ease
                         white-space: nowrap
+                        @include plus1025()
+                            white-space: normal
+                            text-align: center
                     @include font(15px, 16px)
                     &.active, &:active
                         background-color: #FFF9DF
@@ -73,10 +80,69 @@
                         @include plus1025()
                             span
                                 color: $yellow
-                    
+            &.selectcars
+                .filters__form__selectcontainer__ul
+                    grid-template-columns: 1fr
+                    height: var(--filterulmobile) !important
+                    @include plus1025()
+                        height: auto
+                    li
+                        height: min-content
+                        &:first-child        
+                            display: none
+                            width: 100%
+                            justify-items: center
+                            grid-gap: 5px
+                            grid-template-columns:  repeat(8, minmax(auto, 1fr))
+                            @include plus1025()
+                                display: grid
+                            span
+                                font-weight: bold
+                                &:first-child
+                                    justify-self: flex-start
+                            &:hover
+                                background-color: transparent
+                                @include plus1025()
+                                    span
+                                        color: $black
+                        a
+                            display: grid
+                            justify-items: center
+                            width: 100%
+                            grid-gap: 7px
+                            @include plus1025()
+                                grid-gap: 5px
+                                grid-template-columns:  repeat(8, minmax(auto, 1fr))
+                            > span
+                                display: flex
+                                width: 100%
+                                align-items: center
+                                justify-content: space-between
+                                @include plus1025()
+                                    justify-content: center
+                                    &:first-child
+                                        justify-content: flex-start
+                                &:first-child
+                                    justify-self: flex-start
+                                .label
+                                    @include plus1025()
+                                        display: none
+                                
+
             &.toggled
                 opacity: 1
                 border-radius: 8px 8px 0 0
                 .filters__form__selectcontainer__ul
-                    max-height: 500px
                     padding: 24px
+                    overflow: auto
+                    max-height: 300px
+                    @include plus1025()
+                        max-height: 400px
+
+.filters__form__selectcontainer.selectcars .filters__form__selectcontainer__ul
+    @include plus1025()
+        &::after
+            content: ''
+            position: relative
+            height: 1px
+            width: 100%
